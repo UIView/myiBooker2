@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		048CD4371DC9E81600E7F571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD4361DC9E81600E7F571 /* main.m */; };
+		048CD43A1DC9E81600E7F571 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD4391DC9E81600E7F571 /* AppDelegate.m */; };
+		048CD43D1DC9E81600E7F571 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD43C1DC9E81600E7F571 /* ViewController.m */; };
+		048CD4401DC9E81600E7F571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048CD43E1DC9E81600E7F571 /* Main.storyboard */; };
+		048CD4421DC9E81600E7F571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048CD4411DC9E81600E7F571 /* Assets.xcassets */; };
+		048CD4451DC9E81600E7F571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048CD4431DC9E81600E7F571 /* LaunchScreen.storyboard */; };
+		85DDA3DAD5A6102E29063A06 /* libPods-iBooker2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		048CD4321DC9E81600E7F571 /* iBooker2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBooker2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		048CD4361DC9E81600E7F571 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		048CD4381DC9E81600E7F571 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		048CD4391DC9E81600E7F571 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		048CD43B1DC9E81600E7F571 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		048CD43C1DC9E81600E7F571 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		048CD43F1DC9E81600E7F571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		048CD4411DC9E81600E7F571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		048CD4441DC9E81600E7F571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		048CD4461DC9E81600E7F571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A546A363D79A90984AD3A99 /* Pods-iBooker2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBooker2.release.xcconfig"; path = "Pods/Target Support Files/Pods-iBooker2/Pods-iBooker2.release.xcconfig"; sourceTree = "<group>"; };
+		C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iBooker2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD8BADDCDE08474B8ED6DAFB /* Pods-iBooker2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBooker2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iBooker2/Pods-iBooker2.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		048CD42F1DC9E81600E7F571 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85DDA3DAD5A6102E29063A06 /* libPods-iBooker2.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		048CD4291DC9E81600E7F571 = {
+			isa = PBXGroup;
+			children = (
+				048CD4341DC9E81600E7F571 /* iBooker2 */,
+				048CD4331DC9E81600E7F571 /* Products */,
+				AAD585549FE6985190030F07 /* Pods */,
+				38F14C858BB146D2285244B1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		048CD4331DC9E81600E7F571 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				048CD4321DC9E81600E7F571 /* iBooker2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		048CD4341DC9E81600E7F571 /* iBooker2 */ = {
+			isa = PBXGroup;
+			children = (
+				048CD4381DC9E81600E7F571 /* AppDelegate.h */,
+				048CD4391DC9E81600E7F571 /* AppDelegate.m */,
+				048CD43B1DC9E81600E7F571 /* ViewController.h */,
+				048CD43C1DC9E81600E7F571 /* ViewController.m */,
+				048CD43E1DC9E81600E7F571 /* Main.storyboard */,
+				048CD4411DC9E81600E7F571 /* Assets.xcassets */,
+				048CD4431DC9E81600E7F571 /* LaunchScreen.storyboard */,
+				048CD4461DC9E81600E7F571 /* Info.plist */,
+				048CD4351DC9E81600E7F571 /* Supporting Files */,
+			);
+			path = iBooker2;
+			sourceTree = "<group>";
+		};
+		048CD4351DC9E81600E7F571 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				048CD4361DC9E81600E7F571 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38F14C858BB146D2285244B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAD585549FE6985190030F07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD8BADDCDE08474B8ED6DAFB /* Pods-iBooker2.debug.xcconfig */,
+				2A546A363D79A90984AD3A99 /* Pods-iBooker2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		048CD4311DC9E81600E7F571 /* iBooker2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 048CD4491DC9E81600E7F571 /* Build configuration list for PBXNativeTarget "iBooker2" */;
+			buildPhases = (
+				52E1F320254F71F3097818A5 /* [CP] Check Pods Manifest.lock */,
+				048CD42E1DC9E81600E7F571 /* Sources */,
+				048CD42F1DC9E81600E7F571 /* Frameworks */,
+				048CD4301DC9E81600E7F571 /* Resources */,
+				FEF7551C88A3B5F5DFA6A5EB /* [CP] Embed Pods Frameworks */,
+				736FECE7FB8D26F508FFB043 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iBooker2;
+			productName = iBooker2;
+			productReference = 048CD4321DC9E81600E7F571 /* iBooker2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		048CD42A1DC9E81600E7F571 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Yahui.Duan;
+				TargetAttributes = {
+					048CD4311DC9E81600E7F571 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = A89QXMNZDV;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 048CD42D1DC9E81600E7F571 /* Build configuration list for PBXProject "iBooker2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 048CD4291DC9E81600E7F571;
+			productRefGroup = 048CD4331DC9E81600E7F571 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				048CD4311DC9E81600E7F571 /* iBooker2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		048CD4301DC9E81600E7F571 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048CD4451DC9E81600E7F571 /* LaunchScreen.storyboard in Resources */,
+				048CD4421DC9E81600E7F571 /* Assets.xcassets in Resources */,
+				048CD4401DC9E81600E7F571 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52E1F320254F71F3097818A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		736FECE7FB8D26F508FFB043 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iBooker2/Pods-iBooker2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEF7551C88A3B5F5DFA6A5EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iBooker2/Pods-iBooker2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		048CD42E1DC9E81600E7F571 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048CD43D1DC9E81600E7F571 /* ViewController.m in Sources */,
+				048CD43A1DC9E81600E7F571 /* AppDelegate.m in Sources */,
+				048CD4371DC9E81600E7F571 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		048CD43E1DC9E81600E7F571 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				048CD43F1DC9E81600E7F571 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		048CD4431DC9E81600E7F571 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				048CD4441DC9E81600E7F571 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		048CD4471DC9E81600E7F571 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		048CD4481DC9E81600E7F571 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		048CD44A1DC9E81600E7F571 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD8BADDCDE08474B8ED6DAFB /* Pods-iBooker2.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A89QXMNZDV;
+				INFOPLIST_FILE = iBooker2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nimo.iBooker2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		048CD44B1DC9E81600E7F571 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A546A363D79A90984AD3A99 /* Pods-iBooker2.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A89QXMNZDV;
+				INFOPLIST_FILE = iBooker2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nimo.iBooker2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		048CD42D1DC9E81600E7F571 /* Build configuration list for PBXProject "iBooker2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				048CD4471DC9E81600E7F571 /* Debug */,
+				048CD4481DC9E81600E7F571 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		048CD4491DC9E81600E7F571 /* Build configuration list for PBXNativeTarget "iBooker2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				048CD44A1DC9E81600E7F571 /* Debug */,
+				048CD44B1DC9E81600E7F571 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 048CD42A1DC9E81600E7F571 /* Project object */;
+}
