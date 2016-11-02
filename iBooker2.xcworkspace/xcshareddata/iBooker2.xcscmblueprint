@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B1D9B18C6CF0C183F21B9E2D35A4ECD649BAD5CD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B1D9B18C6CF0C183F21B9E2D35A4ECD649BAD5CD" : 9223372036854775807,
+    "253FBA1E5AC2E96E76DCEFD96B65C7B26C082093" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C2365D3D-938E-4B0A-B2A8-820389A66258",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B1D9B18C6CF0C183F21B9E2D35A4ECD649BAD5CD" : "iBooker2\/",
+    "253FBA1E5AC2E96E76DCEFD96B65C7B26C082093" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iBooker2",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iBooker2.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/UIView\/learn_objec_demo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "253FBA1E5AC2E96E76DCEFD96B65C7B26C082093"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/UIView\/myiBooker2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B1D9B18C6CF0C183F21B9E2D35A4ECD649BAD5CD"
+    }
+  ]
+}
