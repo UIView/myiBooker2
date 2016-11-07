@@ -39,4 +39,5 @@
     [cell setBookerListData:nil];
     return cell;
 }
+
 @end

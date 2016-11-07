@@ -14,6 +14,9 @@
 		048CD4421DC9E81600E7F571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048CD4411DC9E81600E7F571 /* Assets.xcassets */; };
 		048CD4451DC9E81600E7F571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048CD4431DC9E81600E7F571 /* LaunchScreen.storyboard */; };
 		048CD4511DC9F61600E7F571 /* DYBookerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD4501DC9F61600E7F571 /* DYBookerListTableViewCell.m */; };
+		04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE21DD0884100D26388 /* DYBookModel.m */; };
+		04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */; };
+		04B77CEA1DD08CF600D26388 /* DYManageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE91DD08CF600D26388 /* DYManageTableViewController.m */; };
 		85DDA3DAD5A6102E29063A06 /* libPods-iBooker2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,12 @@
 		048CD44D1DC9EAD400E7F571 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		048CD44F1DC9F61600E7F571 /* DYBookerListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookerListTableViewCell.h; sourceTree = "<group>"; };
 		048CD4501DC9F61600E7F571 /* DYBookerListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookerListTableViewCell.m; sourceTree = "<group>"; };
+		04B77CE11DD0884100D26388 /* DYBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookModel.h; sourceTree = "<group>"; };
+		04B77CE21DD0884100D26388 /* DYBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookModel.m; sourceTree = "<group>"; };
+		04B77CE51DD08CCA00D26388 /* DYSearchBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchBookTableViewController.h; sourceTree = "<group>"; };
+		04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSearchBookTableViewController.m; sourceTree = "<group>"; };
+		04B77CE81DD08CF600D26388 /* DYManageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYManageTableViewController.h; sourceTree = "<group>"; };
+		04B77CE91DD08CF600D26388 /* DYManageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYManageTableViewController.m; sourceTree = "<group>"; };
 		2A546A363D79A90984AD3A99 /* Pods-iBooker2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBooker2.release.xcconfig"; path = "Pods/Target Support Files/Pods-iBooker2/Pods-iBooker2.release.xcconfig"; sourceTree = "<group>"; };
 		C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iBooker2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8BADDCDE08474B8ED6DAFB /* Pods-iBooker2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBooker2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iBooker2/Pods-iBooker2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,10 +79,16 @@
 		048CD4341DC9E81600E7F571 /* iBooker2 */ = {
 			isa = PBXGroup;
 			children = (
+				04B77CE41DD08A1800D26388 /* BookPublic */,
+				04B77CE01DD0881400D26388 /* allBookerModel */,
 				048CD4381DC9E81600E7F571 /* AppDelegate.h */,
 				048CD4391DC9E81600E7F571 /* AppDelegate.m */,
 				048CD43B1DC9E81600E7F571 /* ViewController.h */,
 				048CD43C1DC9E81600E7F571 /* ViewController.m */,
+				04B77CE51DD08CCA00D26388 /* DYSearchBookTableViewController.h */,
+				04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */,
+				04B77CE81DD08CF600D26388 /* DYManageTableViewController.h */,
+				04B77CE91DD08CF600D26388 /* DYManageTableViewController.m */,
 				048CD44E1DC9F5D700E7F571 /* AllBookCell */,
 				048CD43E1DC9E81600E7F571 /* Main.storyboard */,
 				048CD4411DC9E81600E7F571 /* Assets.xcassets */,
@@ -99,6 +114,22 @@
 				048CD4501DC9F61600E7F571 /* DYBookerListTableViewCell.m */,
 			);
 			name = AllBookCell;
+			sourceTree = "<group>";
+		};
+		04B77CE01DD0881400D26388 /* allBookerModel */ = {
+			isa = PBXGroup;
+			children = (
+				04B77CE11DD0884100D26388 /* DYBookModel.h */,
+				04B77CE21DD0884100D26388 /* DYBookModel.m */,
+			);
+			name = allBookerModel;
+			sourceTree = "<group>";
+		};
+		04B77CE41DD08A1800D26388 /* BookPublic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BookPublic;
 			sourceTree = "<group>";
 		};
 		38F14C858BB146D2285244B1 /* Frameworks */ = {
@@ -242,9 +273,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				048CD4511DC9F61600E7F571 /* DYBookerListTableViewCell.m in Sources */,
+				04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */,
 				048CD43D1DC9E81600E7F571 /* ViewController.m in Sources */,
 				048CD43A1DC9E81600E7F571 /* AppDelegate.m in Sources */,
 				048CD4371DC9E81600E7F571 /* main.m in Sources */,
+				04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */,
+				04B77CEA1DD08CF600D26388 /* DYManageTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
