@@ -7,12 +7,16 @@
 //
 
 #import "DYBookerListTableViewCell.h"
+#import "DYBookModel.h"
+#import <UIImageView+AFNetworking.h>
 
 @implementation DYBookerListTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.subtitleLabel.font=[UIFont systemFontOfSize:14.0];
+    self.subtitleLabel.textColor =[UIColor grayColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,9 +24,10 @@
 
     // Configure the view for the selected state
 }
--(void)setBookerListData:(id)model{
-    self.leftImageView.image =[UIImage imageNamed:@"bookerNoImage"];
-    self.titleLabel.text = @"测试数据01";
-    self.subtitleLabel.text = @"测试数据详情0910";
+-(void)setBookerListData:(DYBookModel *)model{
+    
+    [self.leftImageView setImageWithURL:[NSURL URLWithString:model.bookIamgeStr] placeholderImage:[UIImage imageNamed:@"bookerNoImage"]];
+    self.titleLabel.text = model.title;
+    self.subtitleLabel.text = model.bookDescription;
 }
 @end

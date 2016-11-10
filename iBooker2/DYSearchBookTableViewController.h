@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DYSearchBookTableViewController : UITableViewController
-
+@property NSMutableArray *searchbooks;
 @end

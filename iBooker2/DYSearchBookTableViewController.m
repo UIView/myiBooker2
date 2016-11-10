@@ -7,8 +7,13 @@
 //
 
 #import "DYSearchBookTableViewController.h"
+#import "DYBookModel.h"
+#import "DYBookerListTableViewCell.h"
+#import "Ono.h"
 
-@interface DYSearchBookTableViewController ()
+@interface DYSearchBookTableViewController ()<UISearchResultsUpdating,UISearchBarDelegate,UISearchControllerDelegate>
+@property UISearchController *searchController;
+@property UISearchBar *tempSearchBar;
 
 @end
 
@@ -16,12 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.tableFooterView=[[UIView alloc] init];
+    self.tableView.rowHeight=88.0;
+    _searchbooks=[[NSMutableArray alloc] init];
+    self.title=@"";
+    [self initSearchController];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,62 +34,86 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initSearchController{
+    DYSearchBookTableViewController *resultTVC = [[DYSearchBookTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *resultVC = [[UINavigationController alloc] initWithRootViewController:resultTVC];
+    self.searchController = [[UISearchController alloc]initWithSearchResultsController:resultVC];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.delegate=self;
+    [self.searchController.searchBar sizeToFit];
+//    self.searchController.dimsBackgroundDuringPresentation = NO;
+//    self.searchController.hidesNavigationBarDuringPresentation = NO;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.searchController.searchBar.delegate = self;
+    self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
+
+}
+#pragma mark - searchResultsUpdater
+// Called when the search bar's text or scope has changed or when the search bar becomes first responder.
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    
+}
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if (searchText.length>0) {
+        UINavigationController *nav= (UINavigationController *)self.searchController.searchResultsController;
+        DYSearchBookTableViewController *resultTVC=(DYSearchBookTableViewController *)nav.viewControllers[0];
+        resultTVC.tableView.tableHeaderView=nil;
+    }
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self loadSearchData:searchBar.text];
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+}
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return _searchbooks.count;
 }
-
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    DYBookerListTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"BookerListCell" forIndexPath:indexPath];
+    DYBookModel *model=_searchbooks[indexPath.row];
+    [cell setBookerListData:model];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - data
+-(void)loadSearchData:(NSString *)text{
+    NSString *urlString= @"http://so.ybdu.com/cse/search?";
+    text=[text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLUserAllowedCharacterSet]];
+    NSString *kUrlStr=[NSString stringWithFormat:@"%@q=%@&p=13&s=6637491585052650179&nsid=&entry=1",urlString,text];
+    NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:kUrlStr]]; //下载网页数据
+    
+    NSError *error;
+    ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
+//    ONOXMLElement *postsParentElement= [doc firstChildWithXPath:@"//*[@id='results']"]; //寻找该 XPath 代表的 HTML 节点,
+    ONOXMLElement *countElement= [doc firstChildWithXPath:@"/html/body/div[1]/div[2]/div[2]/div/span"]; //
+    NSLog(@"count = %@",[countElement stringValue]);
+    
+    //遍历其子节点,
+    ONOXMLElement *element= [doc firstChildWithXPath:@"/html/body/div[1]/div[2]/div[2]/div/div[3]"]; //寻找该 XPath 代表的 HTML 节点,
+    [element.children enumerateObjectsUsingBlock:^(ONOXMLElement *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"obj =%@",obj);
+        DYBookModel *bookModel =[[DYBookModel alloc] init];
+        ONOXMLElement *titleElement= [obj firstChildWithXPath:@"div[2]/h3/a"]; // 根据 XPath 获取含有文章标题的 a 标签
+        bookModel.title=[titleElement valueForAttribute:@"title"];
+        titleElement= [obj firstChildWithXPath:@"div[2]/div/p[4]/span[2]"];
+        bookModel.bookStates=[titleElement stringValue];
+        titleElement= [obj firstChildWithXPath:@"div[1]/a/img"];
+        bookModel.bookIamgeStr=[titleElement valueForAttribute:@"src"];
+        titleElement= [obj firstChildWithXPath:@"div[2]/p"];
+        bookModel.bookDescription=[titleElement stringValue];
+        titleElement= [obj firstChildWithXPath:@"div[2]/div/p[1]/span[2]"];
+        bookModel.bookAuthor=[titleElement stringValue];
+        [_searchbooks addObject:bookModel];
+    }];
+    
+    [self.tableView reloadData];
+    
+    
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 /*
 #pragma mark - Navigation
 

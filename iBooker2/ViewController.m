@@ -22,6 +22,8 @@
     self.title= @"iBooker";
     self.tableView.tableFooterView=[[UIView alloc] init];
     self.tableView.rowHeight=88.0;
+    UINib *nib =[UINib nibWithNibName:@"" bundle:nil];
+//    [self.tableView registerNib:nib forCellReuseIdentifier:<#(nonnull NSString *)#>];
 }
 
 
@@ -30,8 +32,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
