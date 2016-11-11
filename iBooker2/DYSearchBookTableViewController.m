@@ -23,12 +23,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.tableFooterView=[[UIView alloc] init];
     _searchbooks=[[NSMutableArray alloc] init];
     self.title=@"";
     _page=0;
     [self initSearchController];
-    
+    // 模拟第一次弹出搜索框
+    [self performSelector:@selector(searchBarBecomeFirstResponder) withObject:nil afterDelay:1.5];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,19 +39,19 @@
 - (void)initSearchController{
     DYSearchResultsTableController *resultTVC = [[DYSearchResultsTableController alloc] initWithStyle:UITableViewStylePlain];
     resultTVC.delegate=self;
-    UINavigationController *resultNavVC = [[UINavigationController alloc] initWithRootViewController:resultTVC];
-    self.searchController = [[UISearchController alloc]initWithSearchResultsController:resultNavVC];
+    self.searchController = [[UISearchController alloc]initWithSearchResultsController:resultTVC];
     self.searchController.searchResultsUpdater = self;
     [self.searchController.searchBar sizeToFit];
 //    self.searchController.dimsBackgroundDuringPresentation = NO;
 //    self.searchController.hidesNavigationBarDuringPresentation = NO;
-    self.tableView.tableHeaderView = self.searchController.searchBar;
     self.searchController.searchBar.delegate = self;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
     self.searchResultController=resultTVC;
-
 }
-
+-(void)searchBarBecomeFirstResponder{
+    [self.tableView.tableHeaderView becomeFirstResponder];
+}
 -(void)clearsSearchData{
     [self.searchbooks removeAllObjects];
     self.searchResultController.filteredProducts=nil;
@@ -66,8 +66,14 @@
     _page++;
     [self loadSearchData:self.searchController.searchBar.text];
 }
+-(void)didSelectIndex:(NSIndexPath *)path{
+    DYBookModel *model=self.searchResultController.filteredProducts[path.row];
+    [self pushToDetailVC:model];
+}
 #pragma mark - UISearchBarDelegate
-
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    return YES;
+}
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     _page=0;
     [self clearsSearchData];
@@ -122,11 +128,12 @@
         bookModel.bookDescription=[titleElement stringValue];
         titleElement= [obj firstChildWithXPath:@"div[2]/div/p[1]/span[2]"];
         bookModel.bookAuthor=[titleElement stringValue];
+        titleElement= [obj firstChildWithXPath:@"/div[1]/div[2]/h3/a"];
+        bookModel.bookContentUrl=[titleElement valueForAttribute:@"href"];
         [_searchbooks addObject:bookModel];
     }];
     
     self.searchResultController.filteredProducts=_searchbooks;
-    [self.searchResultController.tableView reloadData];
     [self.tableView reloadData];
     
     

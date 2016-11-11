@@ -17,5 +17,5 @@
 @protocol DYSearchResultsTableControllerDelegate <NSObject>
 
 -(void)loadMoreSearchResults:(DYSearchResultsTableController *)resultController;
-
+-(void)didSelectIndex:(NSIndexPath *)path;
 @end

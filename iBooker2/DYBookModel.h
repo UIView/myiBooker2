@@ -15,6 +15,6 @@
 @property NSString *bookDescription; //文章简介
 @property NSString *bookAuthor; //文章作者
 @property NSString *bookStates; //文章状态，是否完结
-
+@property NSString *bookContentUrl; //文章内容路径
 
 @end

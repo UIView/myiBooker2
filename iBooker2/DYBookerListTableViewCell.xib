@@ -38,12 +38,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="vCQ-LL-PR3" firstAttribute="leading" secondItem="0ih-CC-kCY" secondAttribute="trailing" constant="8" id="1fy-ye-Ti4"/>
-                    <constraint firstItem="vCQ-LL-PR3" firstAttribute="top" secondItem="CD0-aK-eSi" secondAttribute="bottom" constant="8" id="3cc-4i-o0l"/>
+                    <constraint firstItem="vCQ-LL-PR3" firstAttribute="top" secondItem="CD0-aK-eSi" secondAttribute="bottom" constant="6.5" id="3cc-4i-o0l"/>
                     <constraint firstItem="CD0-aK-eSi" firstAttribute="leading" secondItem="0ih-CC-kCY" secondAttribute="trailing" constant="8" id="9bG-lh-sUb"/>
                     <constraint firstItem="vCQ-LL-PR3" firstAttribute="width" secondItem="CD0-aK-eSi" secondAttribute="width" id="GbR-HX-qvM"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CD0-aK-eSi" secondAttribute="trailing" constant="20" id="TXU-b9-tdN"/>
                     <constraint firstItem="0ih-CC-kCY" firstAttribute="top" secondItem="OiH-eZ-spF" secondAttribute="topMargin" constant="2" id="ZHr-RR-CFP"/>
-                    <constraint firstItem="CD0-aK-eSi" firstAttribute="top" secondItem="OiH-eZ-spF" secondAttribute="topMargin" id="dSs-ax-IZI"/>
+                    <constraint firstItem="CD0-aK-eSi" firstAttribute="top" secondItem="OiH-eZ-spF" secondAttribute="topMargin" constant="2" id="dSs-ax-IZI"/>
                     <constraint firstItem="0ih-CC-kCY" firstAttribute="leading" secondItem="OiH-eZ-spF" secondAttribute="leadingMargin" constant="2" id="y6R-88-6Z1"/>
                 </constraints>
             </tableViewCellContentView>

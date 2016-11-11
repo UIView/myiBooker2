@@ -6,6 +6,7 @@ target 'iBooker2' do
   # use_frameworks!
   pod 'AFNetworking', '~> 3.1.0'
   pod 'Ono', '~> 1.2.2'
+  pod 'MJRefresh', '~> 3.1.12'
   # Pods for iBooker2
 
 end

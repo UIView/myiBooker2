@@ -8,6 +8,7 @@
 
 #import "DYSearchResultsTableController.h"
 #import "DYBookModel.h"
+#import <MJRefresh/MJRefreshAutoFooter.h>
 
 @interface DYSearchResultsTableController ()
 
@@ -17,12 +18,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        // 自动加载
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(loadMoreSearchResults:)]) {
+            [self.delegate loadMoreSearchResults:self];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setFilteredProducts:(NSArray *)filteredProducts{
+    _filteredProducts=filteredProducts;
+    [self.tableView reloadData];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 #pragma mark - Table view data source
@@ -34,20 +46,13 @@
     DYBookerListTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"BookerListCell" forIndexPath:indexPath];
     DYBookModel *model=self.filteredProducts[indexPath.row];
     [cell setBookerListData:model];
-    NSInteger proCount = self.filteredProducts.count;
-    
-    if (indexPath.row+1==proCount) {
-        // 自动加载
-        if (self.delegate&&[self.delegate respondsToSelector:@selector(loadMoreSearchResults:)]) {
-            [self.delegate loadMoreSearchResults:self];
-        }
-    }
     return cell;
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DYBookModel *model=self.filteredProducts[indexPath.row];
-    [self pushToDetailVC:model];
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(didSelectIndex:)]) {
+        [self.delegate didSelectIndex:indexPath];
+    }
 }
 /*
 #pragma mark - Navigation

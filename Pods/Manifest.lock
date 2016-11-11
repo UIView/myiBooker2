@@ -14,16 +14,19 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - MJRefresh (3.1.12)
   - Ono (1.2.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - MJRefresh (~> 3.1.12)
   - Ono (~> 1.2.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
 
-PODFILE CHECKSUM: 02561598c1d2a5742cb9efb829cace03065ae2cd
+PODFILE CHECKSUM: 8c8747496268c011a3f8028d300a209749d01dce
 
 COCOAPODS: 1.1.0.rc.2

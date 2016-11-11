@@ -7,8 +7,8 @@
 //
 
 #import "DYbookBaseTableViewController.h"
+#import "DYBookDetailViewController.h"
 #import "DYBookModel.h"
-
 
 NSString *const kCellIdentifier = @"BookerListCell";
 NSString *const kTableCellNibName = @"DYBookerListTableViewCell";
@@ -21,7 +21,9 @@ NSString *const kTableCellNibName = @"DYBookerListTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.clearsSelectionOnViewWillAppear = YES;
     self.tableView.rowHeight=88.0;
+    self.tableView.tableFooterView=[[UIView alloc] init];
     [self.tableView registerNib:[UINib nibWithNibName:kTableCellNibName bundle:nil] forCellReuseIdentifier:kCellIdentifier];
 }
 
@@ -29,9 +31,19 @@ NSString *const kTableCellNibName = @"DYBookerListTableViewCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
 
 -(void)pushToDetailVC:(DYBookModel *)model{
-    
+    DYBookDetailViewController *detailVC=[[DYBookDetailViewController alloc] init];
+    detailVC.title=model.title;
+    detailVC.bookModel=model;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 /*
