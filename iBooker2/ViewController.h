@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DYbookBaseTableViewController.h"
 
-@interface ViewController : UITableViewController
+@interface ViewController : DYbookBaseTableViewController
 
 
 @end

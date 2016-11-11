@@ -21,9 +21,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.title= @"iBooker";
     self.tableView.tableFooterView=[[UIView alloc] init];
-    self.tableView.rowHeight=88.0;
-    UINib *nib =[UINib nibWithNibName:@"" bundle:nil];
-//    [self.tableView registerNib:nib forCellReuseIdentifier:<#(nonnull NSString *)#>];
 }
 
 

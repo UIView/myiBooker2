@@ -17,7 +17,8 @@
 		04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE21DD0884100D26388 /* DYBookModel.m */; };
 		04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */; };
 		04B77CEA1DD08CF600D26388 /* DYManageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE91DD08CF600D26388 /* DYManageTableViewController.m */; };
-		04F2FCBB1DD1DAC400D7474F /* DYSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F2FCBA1DD1DAC400D7474F /* DYSearchTableViewController.m */; };
+		04D07DA21DD5692A004B5D5A /* DYbookBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */; };
+		04D07DA51DD56B15004B5D5A /* DYSearchResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA41DD56B15004B5D5A /* DYSearchResultsTableController.m */; };
 		04F2FCBD1DD1DB7800D7474F /* DYBookerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F2FCBC1DD1DB7800D7474F /* DYBookerListTableViewCell.xib */; };
 		85DDA3DAD5A6102E29063A06 /* libPods-iBooker2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */; };
 /* End PBXBuildFile section */
@@ -43,8 +44,10 @@
 		04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSearchBookTableViewController.m; sourceTree = "<group>"; };
 		04B77CE81DD08CF600D26388 /* DYManageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYManageTableViewController.h; sourceTree = "<group>"; };
 		04B77CE91DD08CF600D26388 /* DYManageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYManageTableViewController.m; sourceTree = "<group>"; };
-		04F2FCB91DD1DAC400D7474F /* DYSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchTableViewController.h; sourceTree = "<group>"; };
-		04F2FCBA1DD1DAC400D7474F /* DYSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSearchTableViewController.m; sourceTree = "<group>"; };
+		04D07DA01DD5692A004B5D5A /* DYbookBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYbookBaseTableViewController.h; sourceTree = "<group>"; };
+		04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYbookBaseTableViewController.m; sourceTree = "<group>"; };
+		04D07DA31DD56B15004B5D5A /* DYSearchResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchResultsTableController.h; sourceTree = "<group>"; };
+		04D07DA41DD56B15004B5D5A /* DYSearchResultsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSearchResultsTableController.m; sourceTree = "<group>"; };
 		04F2FCBC1DD1DB7800D7474F /* DYBookerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DYBookerListTableViewCell.xib; sourceTree = "<group>"; };
 		2A546A363D79A90984AD3A99 /* Pods-iBooker2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBooker2.release.xcconfig"; path = "Pods/Target Support Files/Pods-iBooker2/Pods-iBooker2.release.xcconfig"; sourceTree = "<group>"; };
 		C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iBooker2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,8 +95,8 @@
 				048CD43C1DC9E81600E7F571 /* ViewController.m */,
 				04B77CE51DD08CCA00D26388 /* DYSearchBookTableViewController.h */,
 				04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */,
-				04F2FCB91DD1DAC400D7474F /* DYSearchTableViewController.h */,
-				04F2FCBA1DD1DAC400D7474F /* DYSearchTableViewController.m */,
+				04D07DA31DD56B15004B5D5A /* DYSearchResultsTableController.h */,
+				04D07DA41DD56B15004B5D5A /* DYSearchResultsTableController.m */,
 				04B77CE81DD08CF600D26388 /* DYManageTableViewController.h */,
 				04B77CE91DD08CF600D26388 /* DYManageTableViewController.m */,
 				048CD44E1DC9F5D700E7F571 /* AllBookCell */,
@@ -136,6 +139,8 @@
 		04B77CE41DD08A1800D26388 /* BookPublic */ = {
 			isa = PBXGroup;
 			children = (
+				04D07DA01DD5692A004B5D5A /* DYbookBaseTableViewController.h */,
+				04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */,
 			);
 			name = BookPublic;
 			sourceTree = "<group>";
@@ -283,9 +288,10 @@
 			files = (
 				048CD4511DC9F61600E7F571 /* DYBookerListTableViewCell.m in Sources */,
 				04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */,
-				04F2FCBB1DD1DAC400D7474F /* DYSearchTableViewController.m in Sources */,
 				048CD43D1DC9E81600E7F571 /* ViewController.m in Sources */,
 				048CD43A1DC9E81600E7F571 /* AppDelegate.m in Sources */,
+				04D07DA21DD5692A004B5D5A /* DYbookBaseTableViewController.m in Sources */,
+				04D07DA51DD56B15004B5D5A /* DYSearchResultsTableController.m in Sources */,
 				048CD4371DC9E81600E7F571 /* main.m in Sources */,
 				04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */,
 				04B77CEA1DD08CF600D26388 /* DYManageTableViewController.m in Sources */,

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DYbookBaseTableViewController.h"
 
-@interface DYSearchBookTableViewController : UITableViewController
+@interface DYSearchBookTableViewController : DYbookBaseTableViewController
 @property NSMutableArray *searchbooks;
 @end

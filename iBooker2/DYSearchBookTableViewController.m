@@ -7,14 +7,16 @@
 //
 
 #import "DYSearchBookTableViewController.h"
-#import "DYBookModel.h"
+#import "DYSearchResultsTableController.h"
 #import "DYBookerListTableViewCell.h"
+#import "DYBookModel.h"
 #import "Ono.h"
 
-@interface DYSearchBookTableViewController ()<UISearchResultsUpdating,UISearchBarDelegate,UISearchControllerDelegate>
+@interface DYSearchBookTableViewController ()<UISearchResultsUpdating,UISearchBarDelegate,DYSearchResultsTableControllerDelegate>
+@property DYSearchResultsTableController *searchResultController;
 @property UISearchController *searchController;
 @property UISearchBar *tempSearchBar;
-
+@property NSInteger page;
 @end
 
 @implementation DYSearchBookTableViewController
@@ -22,9 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView=[[UIView alloc] init];
-    self.tableView.rowHeight=88.0;
     _searchbooks=[[NSMutableArray alloc] init];
     self.title=@"";
+    _page=0;
     [self initSearchController];
     
 }
@@ -35,37 +37,44 @@
 }
 
 - (void)initSearchController{
-    DYSearchBookTableViewController *resultTVC = [[DYSearchBookTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    UINavigationController *resultVC = [[UINavigationController alloc] initWithRootViewController:resultTVC];
-    self.searchController = [[UISearchController alloc]initWithSearchResultsController:resultVC];
+    DYSearchResultsTableController *resultTVC = [[DYSearchResultsTableController alloc] initWithStyle:UITableViewStylePlain];
+    resultTVC.delegate=self;
+    UINavigationController *resultNavVC = [[UINavigationController alloc] initWithRootViewController:resultTVC];
+    self.searchController = [[UISearchController alloc]initWithSearchResultsController:resultNavVC];
     self.searchController.searchResultsUpdater = self;
-    self.searchController.delegate=self;
     [self.searchController.searchBar sizeToFit];
 //    self.searchController.dimsBackgroundDuringPresentation = NO;
 //    self.searchController.hidesNavigationBarDuringPresentation = NO;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.searchController.searchBar.delegate = self;
     self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
+    self.searchResultController=resultTVC;
 
+}
+
+-(void)clearsSearchData{
+    [self.searchbooks removeAllObjects];
+    self.searchResultController.filteredProducts=nil;
 }
 #pragma mark - searchResultsUpdater
 // Called when the search bar's text or scope has changed or when the search bar becomes first responder.
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
     
 }
+
+-(void)loadMoreSearchResults:(DYSearchResultsTableController *)resultController{
+    _page++;
+    [self loadSearchData:self.searchController.searchBar.text];
+}
 #pragma mark - UISearchBarDelegate
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    if (searchText.length>0) {
-        UINavigationController *nav= (UINavigationController *)self.searchController.searchResultsController;
-        DYSearchBookTableViewController *resultTVC=(DYSearchBookTableViewController *)nav.viewControllers[0];
-        resultTVC.tableView.tableHeaderView=nil;
-    }
-}
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    _page=0;
+    [self clearsSearchData];
     [self loadSearchData:searchBar.text];
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    
 }
 #pragma mark - Table view data source
 
@@ -79,11 +88,17 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DYBookModel *model=self.searchbooks[indexPath.row];
+    [self pushToDetailVC:model];
+}
+
 #pragma mark - data
 -(void)loadSearchData:(NSString *)text{
     NSString *urlString= @"http://so.ybdu.com/cse/search?";
     text=[text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLUserAllowedCharacterSet]];
-    NSString *kUrlStr=[NSString stringWithFormat:@"%@q=%@&p=13&s=6637491585052650179&nsid=&entry=1",urlString,text];
+    NSString *kUrlStr=[NSString stringWithFormat:@"%@q=%@&p=%@&s=6637491585052650179&nsid=&entry=1",urlString,text,@(_page)];
     NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:kUrlStr]]; //下载网页数据
     
     NSError *error;
@@ -110,6 +125,8 @@
         [_searchbooks addObject:bookModel];
     }];
     
+    self.searchResultController.filteredProducts=_searchbooks;
+    [self.searchResultController.tableView reloadData];
     [self.tableView reloadData];
     
     
