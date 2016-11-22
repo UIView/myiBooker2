@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0413E5D71DD9ABE1009D6253 /* demo.js in Resources */ = {isa = PBXBuildFile; fileRef = 0413E5D61DD9ABE1009D6253 /* demo.js */; };
+		0420075F1DE3F2190097002F /* DYDownloadBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420075E1DE3F2190097002F /* DYDownloadBook.m */; };
+		042007621DE3FDC00097002F /* DYBookPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042007611DE3FDC00097002F /* DYBookPageModel.m */; };
+		042007641DE3FF010097002F /* ReadTextResourcesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 042007631DE3FF010097002F /* ReadTextResourcesList.plist */; };
+		046FAC111DE43976009C5214 /* DYBookHomeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FAC101DE43976009C5214 /* DYBookHomeWebViewController.m */; };
 		048CD4371DC9E81600E7F571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD4361DC9E81600E7F571 /* main.m */; };
 		048CD43A1DC9E81600E7F571 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD4391DC9E81600E7F571 /* AppDelegate.m */; };
 		048CD43D1DC9E81600E7F571 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD43C1DC9E81600E7F571 /* ViewController.m */; };
@@ -16,7 +21,6 @@
 		048CD4511DC9F61600E7F571 /* DYBookerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD4501DC9F61600E7F571 /* DYBookerListTableViewCell.m */; };
 		04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE21DD0884100D26388 /* DYBookModel.m */; };
 		04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */; };
-		04B77CEA1DD08CF600D26388 /* DYManageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE91DD08CF600D26388 /* DYManageTableViewController.m */; };
 		04D07DA21DD5692A004B5D5A /* DYbookBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */; };
 		04D07DA51DD56B15004B5D5A /* DYSearchResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA41DD56B15004B5D5A /* DYSearchResultsTableController.m */; };
 		04D07DA81DD5975F004B5D5A /* DYxPathBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA71DD5975F004B5D5A /* DYxPathBookModel.m */; };
@@ -26,6 +30,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0413E5D61DD9ABE1009D6253 /* demo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = demo.js; sourceTree = "<group>"; };
+		0413E5E11DD9B051009D6253 /* iBooker2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iBooker2.entitlements; sourceTree = "<group>"; };
+		0420075D1DE3F2190097002F /* DYDownloadBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYDownloadBook.h; sourceTree = "<group>"; };
+		0420075E1DE3F2190097002F /* DYDownloadBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYDownloadBook.m; sourceTree = "<group>"; };
+		042007601DE3FDC00097002F /* DYBookPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookPageModel.h; sourceTree = "<group>"; };
+		042007611DE3FDC00097002F /* DYBookPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookPageModel.m; sourceTree = "<group>"; };
+		042007631DE3FF010097002F /* ReadTextResourcesList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadTextResourcesList.plist; sourceTree = "<group>"; };
+		046FAC0F1DE43976009C5214 /* DYBookHomeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookHomeWebViewController.h; sourceTree = "<group>"; };
+		046FAC101DE43976009C5214 /* DYBookHomeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookHomeWebViewController.m; sourceTree = "<group>"; };
 		048CD4321DC9E81600E7F571 /* iBooker2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBooker2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048CD4361DC9E81600E7F571 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		048CD4381DC9E81600E7F571 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,8 +57,6 @@
 		04B77CE21DD0884100D26388 /* DYBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookModel.m; sourceTree = "<group>"; };
 		04B77CE51DD08CCA00D26388 /* DYSearchBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchBookTableViewController.h; sourceTree = "<group>"; };
 		04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSearchBookTableViewController.m; sourceTree = "<group>"; };
-		04B77CE81DD08CF600D26388 /* DYManageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYManageTableViewController.h; sourceTree = "<group>"; };
-		04B77CE91DD08CF600D26388 /* DYManageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYManageTableViewController.m; sourceTree = "<group>"; };
 		04D07DA01DD5692A004B5D5A /* DYbookBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYbookBaseTableViewController.h; sourceTree = "<group>"; };
 		04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYbookBaseTableViewController.m; sourceTree = "<group>"; };
 		04D07DA31DD56B15004B5D5A /* DYSearchResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchResultsTableController.h; sourceTree = "<group>"; };
@@ -72,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0420075C1DE3F1BA0097002F /* DownloadBook */ = {
+			isa = PBXGroup;
+			children = (
+				0420075D1DE3F2190097002F /* DYDownloadBook.h */,
+				0420075E1DE3F2190097002F /* DYDownloadBook.m */,
+			);
+			path = DownloadBook;
+			sourceTree = "<group>";
+		};
 		048CD4291DC9E81600E7F571 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +113,8 @@
 		048CD4341DC9E81600E7F571 /* iBooker2 */ = {
 			isa = PBXGroup;
 			children = (
+				0420075C1DE3F1BA0097002F /* DownloadBook */,
+				0413E5E11DD9B051009D6253 /* iBooker2.entitlements */,
 				04B77CE41DD08A1800D26388 /* BookPublic */,
 				04B77CE01DD0881400D26388 /* allBookerModel */,
 				048CD4381DC9E81600E7F571 /* AppDelegate.h */,
@@ -103,8 +125,8 @@
 				04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */,
 				04D07DA31DD56B15004B5D5A /* DYSearchResultsTableController.h */,
 				04D07DA41DD56B15004B5D5A /* DYSearchResultsTableController.m */,
-				04B77CE81DD08CF600D26388 /* DYManageTableViewController.h */,
-				04B77CE91DD08CF600D26388 /* DYManageTableViewController.m */,
+				046FAC0F1DE43976009C5214 /* DYBookHomeWebViewController.h */,
+				046FAC101DE43976009C5214 /* DYBookHomeWebViewController.m */,
 				04D07DA91DD59D0C004B5D5A /* DYBookDetailViewController.h */,
 				04D07DAA1DD59D0C004B5D5A /* DYBookDetailViewController.m */,
 				048CD44E1DC9F5D700E7F571 /* AllBookCell */,
@@ -120,7 +142,9 @@
 		048CD4351DC9E81600E7F571 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0413E5D61DD9ABE1009D6253 /* demo.js */,
 				048CD4361DC9E81600E7F571 /* main.m */,
+				042007631DE3FF010097002F /* ReadTextResourcesList.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -140,6 +164,8 @@
 			children = (
 				04B77CE11DD0884100D26388 /* DYBookModel.h */,
 				04B77CE21DD0884100D26388 /* DYBookModel.m */,
+				042007601DE3FDC00097002F /* DYBookPageModel.h */,
+				042007611DE3FDC00097002F /* DYBookPageModel.m */,
 				04D07DA61DD5975F004B5D5A /* DYxPathBookModel.h */,
 				04D07DA71DD5975F004B5D5A /* DYxPathBookModel.m */,
 			);
@@ -208,6 +234,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = A89QXMNZDV;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -234,10 +265,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0413E5D71DD9ABE1009D6253 /* demo.js in Resources */,
 				04F2FCBD1DD1DB7800D7474F /* DYBookerListTableViewCell.xib in Resources */,
 				048CD4451DC9E81600E7F571 /* LaunchScreen.storyboard in Resources */,
 				048CD4421DC9E81600E7F571 /* Assets.xcassets in Resources */,
 				048CD4401DC9E81600E7F571 /* Main.storyboard in Resources */,
+				042007641DE3FF010097002F /* ReadTextResourcesList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,10 +334,12 @@
 				048CD43D1DC9E81600E7F571 /* ViewController.m in Sources */,
 				048CD43A1DC9E81600E7F571 /* AppDelegate.m in Sources */,
 				04D07DA21DD5692A004B5D5A /* DYbookBaseTableViewController.m in Sources */,
+				042007621DE3FDC00097002F /* DYBookPageModel.m in Sources */,
 				04D07DA51DD56B15004B5D5A /* DYSearchResultsTableController.m in Sources */,
 				048CD4371DC9E81600E7F571 /* main.m in Sources */,
+				046FAC111DE43976009C5214 /* DYBookHomeWebViewController.m in Sources */,
+				0420075F1DE3F2190097002F /* DYDownloadBook.m in Sources */,
 				04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */,
-				04B77CEA1DD08CF600D26388 /* DYManageTableViewController.m in Sources */,
 				04D07DA81DD5975F004B5D5A /* DYxPathBookModel.m in Sources */,
 				04D07DAB1DD59D0C004B5D5A /* DYBookDetailViewController.m in Sources */,
 			);
@@ -431,12 +466,13 @@
 			baseConfigurationReference = FD8BADDCDE08474B8ED6DAFB /* Pods-iBooker2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iBooker2/iBooker2.entitlements;
 				DEVELOPMENT_TEAM = A89QXMNZDV;
 				INFOPLIST_FILE = iBooker2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nimo.iBooker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -445,12 +481,13 @@
 			baseConfigurationReference = 2A546A363D79A90984AD3A99 /* Pods-iBooker2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iBooker2/iBooker2.entitlements;
 				DEVELOPMENT_TEAM = A89QXMNZDV;
 				INFOPLIST_FILE = iBooker2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nimo.iBooker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

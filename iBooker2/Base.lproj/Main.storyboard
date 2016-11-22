@@ -22,7 +22,7 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="ImC-Ey-X4X">
                         <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="lLj-ip-VgO">
                             <connections>
-                                <segue destination="2y0-g5-KYn" kind="show" id="dHS-59-Ih2"/>
+                                <segue destination="abt-2A-IBN" kind="show" id="EBw-pX-bGC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="nbV-T3-o7c">
@@ -36,23 +36,41 @@
             </objects>
             <point key="canvasLocation" x="1542" y="124"/>
         </scene>
-        <!--Manage Table View Controller-->
-        <scene sceneID="NJ5-p3-wlx">
+        <!--Book Home Web View Controller-->
+        <scene sceneID="FNn-he-ylo">
             <objects>
-                <tableViewController id="2y0-g5-KYn" customClass="DYManageTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wE8-WG-wHU">
+                <viewController id="abt-2A-IBN" customClass="DYBookHomeWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f1D-cb-Pf3"/>
+                        <viewControllerLayoutGuide type="bottom" id="gZq-zp-MSa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QV2-QJ-Ruv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="2y0-g5-KYn" id="5K4-cm-bz0"/>
-                            <outlet property="delegate" destination="2y0-g5-KYn" id="QzJ-kZ-qGn"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gjU-fR-IM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mVD-RI-ocN">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="s6L-C4-wDZ">
+                            <rect key="frame" x="61" y="7" width="253" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="L1V-xt-5Yh">
+                            <connections>
+                                <action selector="rightButtonAction:" destination="abt-2A-IBN" id="Nac-o3-poI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pageUrlTextField" destination="s6L-C4-wDZ" id="Uw3-bT-e2q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OsE-Ax-lLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2633" y="-188"/>
+            <point key="canvasLocation" x="2637.5999999999999" y="-153.37331334332833"/>
         </scene>
         <!--Title-->
         <scene sceneID="DcW-TP-aYT">

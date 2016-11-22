@@ -11,5 +11,5 @@
 
 @interface DYBookDetailViewController : UIViewController
 @property DYBookModel *bookModel;
-
+@property (nonatomic,strong) NSURL *resourceURL;
 @end
