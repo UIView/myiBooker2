@@ -62,10 +62,11 @@
     NSArray *matchLists =[NSArray arrayWithContentsOfFile:listPath];
     NSDictionary *pagesDic = matchLists[0];
     NSString *pagesURL = pagesDic[@"book_pages_url"];
+    NSString *pagespath = pagesDic[@"book_pages_path"];
     NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:pagesURL]]; //下载网页数据
     NSError *error;
     ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
-    ONOXMLElement *countElement= [doc firstChildWithXPath:pagesDic[@"book_pages_path"]]; //
+    ONOXMLElement *countElement= [doc firstChildWithXPath:pagespath]; //
     NSLog(@"count = %@",[countElement stringValue]);
 //    [countElement.children enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //        DYBookPageModel *bookModel =[[DYBookPageModel alloc] init];
