@@ -22,15 +22,19 @@
 			<key>book_type</key>
 			<string></string>
 		</dict>
+		<key>book_pages_c_url</key>
+		<string>index.html</string>
+		<key>book_need_sort</key>
+		<true/>
 		<key>book_pages_url</key>
 		<string>http://www.bxwx8.org/b/58/58148/index.html</string>
 		<key>book_pages_path</key>
-		<string>/html/body/div[7]/div</string>
+		<string>/html/body/div[7]/div/dl</string>
 		<key>book_pages</key>
 		<array>
 			<dict>
 				<key>book_page_title</key>
-				<string>dl/dd[2]/a</string>
+				<string>a</string>
 				<key>book_page_url</key>
 				<string>href</string>
 				<key>book_content</key>

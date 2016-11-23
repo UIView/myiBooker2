@@ -25,6 +25,8 @@
 		04D07DA51DD56B15004B5D5A /* DYSearchResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA41DD56B15004B5D5A /* DYSearchResultsTableController.m */; };
 		04D07DA81DD5975F004B5D5A /* DYxPathBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA71DD5975F004B5D5A /* DYxPathBookModel.m */; };
 		04D07DAB1DD59D0C004B5D5A /* DYBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DAA1DD59D0C004B5D5A /* DYBookDetailViewController.m */; };
+		04D52C3C1DE57DF500A99D35 /* DYRequestHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D52C3B1DE57DF500A99D35 /* DYRequestHelp.m */; };
+		04D52C3F1DE5ADA600A99D35 /* DYFileManageHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D52C3E1DE5ADA600A99D35 /* DYFileManageHelp.m */; };
 		04F2FCBD1DD1DB7800D7474F /* DYBookerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F2FCBC1DD1DB7800D7474F /* DYBookerListTableViewCell.xib */; };
 		85DDA3DAD5A6102E29063A06 /* libPods-iBooker2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,10 @@
 		04D07DA71DD5975F004B5D5A /* DYxPathBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYxPathBookModel.m; sourceTree = "<group>"; };
 		04D07DA91DD59D0C004B5D5A /* DYBookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookDetailViewController.h; sourceTree = "<group>"; };
 		04D07DAA1DD59D0C004B5D5A /* DYBookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookDetailViewController.m; sourceTree = "<group>"; };
+		04D52C3A1DE57DF500A99D35 /* DYRequestHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYRequestHelp.h; sourceTree = "<group>"; };
+		04D52C3B1DE57DF500A99D35 /* DYRequestHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYRequestHelp.m; sourceTree = "<group>"; };
+		04D52C3D1DE5ADA600A99D35 /* DYFileManageHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYFileManageHelp.h; sourceTree = "<group>"; };
+		04D52C3E1DE5ADA600A99D35 /* DYFileManageHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYFileManageHelp.m; sourceTree = "<group>"; };
 		04F2FCBC1DD1DB7800D7474F /* DYBookerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DYBookerListTableViewCell.xib; sourceTree = "<group>"; };
 		2A546A363D79A90984AD3A99 /* Pods-iBooker2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBooker2.release.xcconfig"; path = "Pods/Target Support Files/Pods-iBooker2/Pods-iBooker2.release.xcconfig"; sourceTree = "<group>"; };
 		C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iBooker2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +183,10 @@
 			children = (
 				04D07DA01DD5692A004B5D5A /* DYbookBaseTableViewController.h */,
 				04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */,
+				04D52C3A1DE57DF500A99D35 /* DYRequestHelp.h */,
+				04D52C3B1DE57DF500A99D35 /* DYRequestHelp.m */,
+				04D52C3D1DE5ADA600A99D35 /* DYFileManageHelp.h */,
+				04D52C3E1DE5ADA600A99D35 /* DYFileManageHelp.m */,
 			);
 			name = BookPublic;
 			sourceTree = "<group>";
@@ -332,10 +342,12 @@
 				048CD4511DC9F61600E7F571 /* DYBookerListTableViewCell.m in Sources */,
 				04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */,
 				048CD43D1DC9E81600E7F571 /* ViewController.m in Sources */,
+				04D52C3C1DE57DF500A99D35 /* DYRequestHelp.m in Sources */,
 				048CD43A1DC9E81600E7F571 /* AppDelegate.m in Sources */,
 				04D07DA21DD5692A004B5D5A /* DYbookBaseTableViewController.m in Sources */,
 				042007621DE3FDC00097002F /* DYBookPageModel.m in Sources */,
 				04D07DA51DD56B15004B5D5A /* DYSearchResultsTableController.m in Sources */,
+				04D52C3F1DE5ADA600A99D35 /* DYFileManageHelp.m in Sources */,
 				048CD4371DC9E81600E7F571 /* main.m in Sources */,
 				046FAC111DE43976009C5214 /* DYBookHomeWebViewController.m in Sources */,
 				0420075F1DE3F2190097002F /* DYDownloadBook.m in Sources */,

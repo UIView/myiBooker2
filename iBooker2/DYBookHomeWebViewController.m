@@ -10,12 +10,15 @@
 #import <WebKit/WebKit.h>
 #import "Ono.h"
 #import "DYBookPageModel.h"
+#import "DYFileManageHelp.h"
 
 
-@interface DYBookHomeWebViewController ()<WKNavigationDelegate>
+@interface DYBookHomeWebViewController ()<WKNavigationDelegate,NSURLSessionDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *pageUrlTextField;
 @property WKWebView *webView;
 @property NSMutableArray *textData;
+@property NSMutableArray *pagesData;
+
 @property NSMutableString *textString;
 
 @end
@@ -27,8 +30,9 @@
     // Do any additional setup after loading the view.
     _textData=[NSMutableArray array];
     _textString=[[NSMutableString alloc] init];
+    _pagesData=[NSMutableArray array];
     [self setLeftNavButtonAction];
-    [self loadWebView];
+//    [self loadWebView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,16 +40,32 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)loadWebView{
+    NSString * listPath =[[NSBundle mainBundle] pathForResource:@"ReadTextResourcesList" ofType:@"plist"];
+    NSArray *matchLists =[NSArray arrayWithContentsOfFile:listPath];
+    NSDictionary *pagesDic = matchLists[0];
+    NSString *pagesURL = pagesDic[@"book_pages_url"];
+    NSLog(@"count = %@",pagesURL);
     WKWebViewConfiguration *bookConfig = [[WKWebViewConfiguration alloc] init];
     WKWebView *testWebView =[[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) configuration:bookConfig];
     testWebView.navigationDelegate=self;
     [self.view addSubview:testWebView];
-    NSString *urlString =@"http://m.baidu.com";
+    NSString *urlString =@"";
     NSURLRequest *urlRequest =[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     [testWebView loadRequest:urlRequest];
     self.webView=testWebView;
+    
 }
 #pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
+    decisionHandler(WKNavigationActionPolicyAllow);
+    NSURLRequest *testRequest = navigationAction.request;
+    NSLog(@"NavigationAction =%@",testRequest.allHTTPHeaderFields);
+
+}
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{
+    decisionHandler(WKNavigationResponsePolicyAllow);
+    NSLog(@"navigationResponse =%@",navigationResponse.response);
+}
 -(void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
     NSLog(@"didStartProvisionalNavigation");
     self.pageUrlTextField.text = webView.URL.absoluteString;
@@ -63,31 +83,74 @@
     NSDictionary *pagesDic = matchLists[0];
     NSString *pagesURL = pagesDic[@"book_pages_url"];
     NSString *pagespath = pagesDic[@"book_pages_path"];
+    NSString *book_content_base_path = [[pagesURL componentsSeparatedByString:pagesDic[@"book_pages_c_url"]] firstObject];
+
     NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:pagesURL]]; //下载网页数据
+    NSString *downString =[[NSString alloc] initWithData:data encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+    data=[downString dataUsingEncoding:4];
+
     NSError *error;
     ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
     ONOXMLElement *countElement= [doc firstChildWithXPath:pagespath]; //
-    NSLog(@"count = %@",[countElement stringValue]);
-//    [countElement.children enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        DYBookPageModel *bookModel =[[DYBookPageModel alloc] init];
-//        NSArray *pages = pagesDic[@"book_pages"];
-//        NSDictionary *pageDic=pages[0];
-//        ONOXMLElement *titleElement= [obj firstChildWithXPath:pageDic[@"book_page_title"]]; // 根据 XPath 获取含有文章标题的 a 标签
-//        bookModel.pageTitle= titleElement.stringValue;
-//        NSString *pageString = [titleElement valueForAttribute:pageDic[@"book_page_url"]];
-//        bookModel.bookContentURL=[NSString stringWithFormat:@"http://www.bxwx8.org/b/58/58148/%@",pageString];
-////        [self downloadSubContent:bookModel withPathDic:pageDic];
-//        
-//    }];
+    [countElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSArray *pages = pagesDic[@"book_pages"];
+        NSDictionary *subPageDic=pages[0];
+        ONOXMLElement *itemElement= [obj firstChildWithXPath:subPageDic[@"book_page_title"]];
+        if (itemElement) {
+            NSString *pageString = [itemElement valueForAttribute:subPageDic[@"book_page_url"]];
+            DYBookPageModel *bookModel =[[DYBookPageModel alloc] init];
+            bookModel.pageTitle= itemElement.stringValue;
+            bookModel.bookContentURL=[NSString stringWithFormat:@"%@%@",book_content_base_path,pageString];
+            NSArray *pageNumbers =[pageString componentsSeparatedByString:@"."];
+            if (pageNumbers.count>0) {
+                bookModel.sorting=pageNumbers[0];
+            }
+            [self downloadSubContent:bookModel withPathDic:subPageDic];
+        }
+   
+    }];
+    if ([pagesDic[@"book_need_sort"] boolValue]) {
+        // 升序
+        [_pagesData sortUsingComparator:^NSComparisonResult(DYBookPageModel * obj1, DYBookPageModel * obj2) {
+            NSInteger value1=[obj1.sorting integerValue];
+            NSInteger value2=[obj2.sorting integerValue];
+            return value1>value2;
+        }];
+        NSLog(@"book_content string＝%@",countElement.stringValue);
+        [_pagesData enumerateObjectsUsingBlock:^(DYBookPageModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [_textString appendString:obj.pageTitle];
+            [_textString appendString:@"\n"];
+            [_textString appendString:obj.bookContent];
+        }];
+        if (_textString) {
+            
+            NSData *textData =[_textString dataUsingEncoding:4];
+            NSString *textPath =[DYFileManageHelp getCacheFilePathString:@"吞雷天尸.text"];
+            BOOL isSucess=[textData writeToFile:textPath atomically:YES];
+            NSLog(@"isSucess =%@",@(isSucess));
+        }
+    }
+//    pagesURL=@"http://www.baidu.com";
+    NSMutableURLRequest *request =[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:pagesURL]];
+    NSURLSessionDataTask * testDataTask=[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSString *downString =[[NSString alloc] initWithData:data encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+        NSLog(@"down string＝%@",downString);
+    }];
+    [testDataTask resume];
+//
 
 }
 -(void)downloadSubContent:(DYBookPageModel *)model withPathDic:(NSDictionary *)pagesDic{
     NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:model.bookContentURL]]; //下载网页数据
+    NSString *downString =[[NSString alloc] initWithData:data encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+    data=[downString dataUsingEncoding:4];
     NSError *error;
     ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
     ONOXMLElement *countElement= [doc firstChildWithXPath:pagesDic[@"book_content"]]; //
     NSString *bookContent =countElement.stringValue;
-    NSLog(@"text content = %@",bookContent);
+    model.bookContent=bookContent;
+    NSLog(@"text content = %@",model.pageTitle);
+    [_pagesData addObject:model];
 }
 #pragma mark - Navigation
 

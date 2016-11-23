@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iBooker2/DYBookHomeWebViewController.m"
-            timestampString = "501506494.602611"
+            filePath = "Pods/Ono/Source/ONOXMLDocument.m"
+            timestampString = "501582944.354814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-downloadSubContent:withPathDic:"
+            startingLineNumber = "754"
+            endingLineNumber = "754"
+            landmarkName = "-XPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iBooker2/DYBookHomeWebViewController.m"
-            timestampString = "501506494.602611"
+            timestampString = "501591732.589382"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "-downloadTempText"
             landmarkType = "7">
          </BreakpointContent>
