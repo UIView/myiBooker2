@@ -80,13 +80,19 @@
 -(void)downloadTempText{
     NSString * listPath =[[NSBundle mainBundle] pathForResource:@"ReadTextResourcesList" ofType:@"plist"];
     NSArray *matchLists =[NSArray arrayWithContentsOfFile:listPath];
-    NSDictionary *pagesDic = matchLists[0];
+    NSDictionary *pagesDic = matchLists[1];
     NSString *pagesURL = pagesDic[@"book_pages_url"];
     NSString *pagespath = pagesDic[@"book_pages_path"];
     NSString *book_content_base_path = [[pagesURL componentsSeparatedByString:pagesDic[@"book_pages_c_url"]] firstObject];
 
     NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:pagesURL]]; //下载网页数据
-    NSString *downString =[[NSString alloc] initWithData:data encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+    NSStringEncoding enc_gbk = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingDOSChineseSimplif);
+    NSString *downString =[[NSString alloc] initWithData:data encoding:enc_gbk];
+    downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    downString=[downString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+    downString=[downString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+
     data=[downString dataUsingEncoding:4];
 
     NSError *error;
@@ -105,7 +111,9 @@
             if (pageNumbers.count>0) {
                 bookModel.sorting=pageNumbers[0];
             }
-            [self downloadSubContent:bookModel withPathDic:subPageDic];
+            [_pagesData addObject:bookModel];
+
+//            [self downloadSubContent:bookModel withPathDic:subPageDic];
         }
    
     }];
@@ -116,12 +124,19 @@
             NSInteger value2=[obj2.sorting integerValue];
             return value1>value2;
         }];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // 耗时的操作
+            [_pagesData enumerateObjectsUsingBlock:^(DYBookPageModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSArray *pages = pagesDic[@"book_pages"];
+                NSDictionary *subPageDic=pages[0];
+                [self downloadSubContent:obj withPathDic:subPageDic];
+                
+            }];
+        });
+        
         NSLog(@"book_content string＝%@",countElement.stringValue);
-        [_pagesData enumerateObjectsUsingBlock:^(DYBookPageModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [_textString appendString:obj.pageTitle];
-            [_textString appendString:@"\n"];
-            [_textString appendString:obj.bookContent];
-        }];
+   
         if (_textString) {
             
             NSData *textData =[_textString dataUsingEncoding:4];
@@ -133,8 +148,15 @@
 //    pagesURL=@"http://www.baidu.com";
     NSMutableURLRequest *request =[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:pagesURL]];
     NSURLSessionDataTask * testDataTask=[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSString *downString =[[NSString alloc] initWithData:data encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+        NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+        NSString *downString =[[NSString alloc] initWithData:data encoding:enc];
         NSLog(@"down string＝%@",downString);
+        
+        NSError *xmlError;
+        ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithString:downString encoding:4 error:&xmlError];
+        ONOXMLElement *countElement= [doc firstChildWithXPath:pagespath]; //
+        NSLog(@"countElement.stringValue \n＝%@",countElement.stringValue);
+
     }];
     [testDataTask resume];
 //
@@ -143,14 +165,25 @@
 -(void)downloadSubContent:(DYBookPageModel *)model withPathDic:(NSDictionary *)pagesDic{
     NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:model.bookContentURL]]; //下载网页数据
     NSString *downString =[[NSString alloc] initWithData:data encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+    downString=[downString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+    downString=[downString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     data=[downString dataUsingEncoding:4];
     NSError *error;
     ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
     ONOXMLElement *countElement= [doc firstChildWithXPath:pagesDic[@"book_content"]]; //
-    NSString *bookContent =countElement.stringValue;
-    model.bookContent=bookContent;
-    NSLog(@"text content = %@",model.pageTitle);
-    [_pagesData addObject:model];
+    if (countElement) {
+        NSString *bookContent =countElement.stringValue;
+        model.bookContent=bookContent;
+        
+        [_textString appendString:model.pageTitle];
+        [_textString appendString:@"\n"];
+        [_textString appendString:model.bookContent];
+        NSLog(@"\n $$$$$$ text content  $$$$$$$$ \n ");
+
+    }
+    NSLog(@"text content = %@ ",model.pageTitle);
+
+
 }
 #pragma mark - Navigation
 

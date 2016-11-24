@@ -66,21 +66,27 @@
 			<key>book_type</key>
 			<string></string>
 		</dict>
+		<key>book_pages_c_url</key>
+		<string></string>
+		<key>book_need_sort</key>
+		<true/>
 		<key>book_pages_url</key>
-		<string>http://www.bxwx8.org/b/58/58148/index.html</string>
+		<string>http://m.23wx.com/html/25/25863/</string>
 		<key>book_pages_path</key>
-		<string>/html/body/div[7]/div</string>
+		<string>/html/body/div[3]/ul</string>
 		<key>book_pages</key>
 		<array>
 			<dict>
 				<key>book_page_title</key>
-				<string>dl/dd[2]/a</string>
+				<string>a</string>
 				<key>book_page_url</key>
 				<string>href</string>
 				<key>book_content</key>
-				<string>/html/body/div[7]</string>
+				<string>/html/body/div[4]/div[1]</string>
 				<key>book_content_url</key>
 				<string></string>
+				<key>book_content_list</key>
+				<string>/html/body/div[4]/div[1]</string>
 			</dict>
 		</array>
 	</dict>
