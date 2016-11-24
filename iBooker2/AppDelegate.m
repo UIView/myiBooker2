@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DYFileManageHelp.h"
 #import <JSPatchPlatform/JPEngine.h>
 
 @interface AppDelegate ()
@@ -22,6 +23,9 @@
 //    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"js"];
 //    NSString *script = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
 //    [JPEngine evaluateScript:script];
+    
+    // 创建数据库
+    [[DYFileManageHelp shareFileManageHelpr] initDatabase];
     
     return YES;
 }

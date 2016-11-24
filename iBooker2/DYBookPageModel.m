@@ -10,5 +10,8 @@
 
 @implementation DYBookPageModel
 
-
++(NSString *)createDYBookPageModelSql{
+    NSString * sql=@"CREATE TABLE IF NOT EXISTS t_pages_tab (page_id INTEGER PRIMARY KEY,book_id integer,page_title text,page_url text,sorting text,content text)";
+    return sql;
+}
 @end

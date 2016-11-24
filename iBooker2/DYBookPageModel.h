@@ -15,4 +15,7 @@
 @property NSString *bookContentURL; //文章章节地址
 @property NSString *bookContent; //文章内容
 @property NSString *sorting; // 排序
+
++(NSString *)createDYBookPageModelSql;
+
 @end

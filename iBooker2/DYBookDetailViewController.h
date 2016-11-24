@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DYBookModel;
+typedef NS_ENUM(NSUInteger, TDYReaderTransitionStyle) {
+    TDYReaderTransitionStylePageCur,
+    TDYReaderTransitionStyleScroll,
+};
 
+@class DYBookModel;
 @interface DYBookDetailViewController : UIViewController
 @property DYBookModel *bookModel;
 @property (nonatomic,strong) NSURL *resourceURL;
+@property (nonatomic, assign) TDYReaderTransitionStyle style;// 翻页样式
+
 @end

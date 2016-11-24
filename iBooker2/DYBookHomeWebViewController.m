@@ -10,10 +10,11 @@
 #import <WebKit/WebKit.h>
 #import "Ono.h"
 #import "DYBookPageModel.h"
+#import "DYBookModel.h"
 #import "DYFileManageHelp.h"
 
 
-@interface DYBookHomeWebViewController ()<WKNavigationDelegate,NSURLSessionDelegate>
+@interface DYBookHomeWebViewController ()<WKNavigationDelegate,NSURLSessionDelegate,WKScriptMessageHandler>
 @property (weak, nonatomic) IBOutlet UITextField *pageUrlTextField;
 @property WKWebView *webView;
 @property NSMutableArray *textData;
@@ -32,7 +33,7 @@
     _textString=[[NSMutableString alloc] init];
     _pagesData=[NSMutableArray array];
     [self setLeftNavButtonAction];
-//    [self loadWebView];
+    [self loadWebView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,27 +43,67 @@
 -(void)loadWebView{
     NSString * listPath =[[NSBundle mainBundle] pathForResource:@"ReadTextResourcesList" ofType:@"plist"];
     NSArray *matchLists =[NSArray arrayWithContentsOfFile:listPath];
-    NSDictionary *pagesDic = matchLists[0];
-    NSString *pagesURL = pagesDic[@"book_pages_url"];
+    NSDictionary *pagesDic = matchLists[1];
+    NSString *pagesURL = pagesDic[@"book_home_url"];
     NSLog(@"count = %@",pagesURL);
-    WKWebViewConfiguration *bookConfig = [[WKWebViewConfiguration alloc] init];
-    WKWebView *testWebView =[[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) configuration:bookConfig];
-    testWebView.navigationDelegate=self;
-    [self.view addSubview:testWebView];
-    NSString *urlString =@"";
-    NSURLRequest *urlRequest =[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
-    [testWebView loadRequest:urlRequest];
-    self.webView=testWebView;
     
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    
+    WKUserContentController *userController = [[WKUserContentController alloc] init];
+    NSString * adPath =[[NSBundle mainBundle] pathForResource:@"Adblock" ofType:@"js"];
+    
+    NSString *javascriptString = [NSString stringWithContentsOfFile:adPath encoding:NSUTF8StringEncoding error:nil];
+    WKUserScript *javascrip =[[WKUserScript alloc] initWithSource:javascriptString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:NO];
+    [userController addUserScript:javascrip];
+    
+    [userController addScriptMessageHandler:self name:@"didFinishLoading"];
+    
+    config.userContentController = userController;
+    
+    WKWebView *testWebView =[[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) configuration:config];
+    testWebView.navigationDelegate=self;
+    testWebView.customUserAgent=@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0";
+    [self.view addSubview:testWebView];
+    NSString *urlString =pagesURL;
+    NSURLRequest *urlRequest =[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+//    [testWebView loadRequest:urlRequest];
+    self.webView=testWebView;
+    [self testDB];
 }
+-(void)testDB{
+
+    DYBookModel *bookItem=[[DYBookModel alloc] init];
+    bookItem.title=@"xxxtsssll";
+    bookItem.bookDate=@"xxxttst";
+    bookItem.bookIamgeStr=@"xxxttst";
+    bookItem.bookDescription=@"sss";
+    bookItem.bookAuthor=@" ttst";
+    bookItem.bookStates=@"xxxttst";
+    bookItem.bookContentUrl=@"http/wwww.baidu.com/// @";
+    bookItem.readingPage=1;
+    bookItem.cachegPage=12;
+    bookItem.readingContent=@"dfdf";
+    
+    [[DYFileManageHelp shareFileManageHelpr] insertBooksToDB:@[bookItem,bookItem,bookItem]];
+
+}
+
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
-    decisionHandler(WKNavigationActionPolicyAllow);
     NSURLRequest *testRequest = navigationAction.request;
-    NSLog(@"NavigationAction =%@",testRequest.allHTTPHeaderFields);
+//    if ([testRequest.URL.absoluteString hasPrefix:@"http://m.bxwx8.org"]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+//    }else{
+//        decisionHandler(WKNavigationActionPolicyCancel);
+//    }
+    NSLog(@"NavigationAction =%@",testRequest);
 
 }
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{
+    if (![navigationResponse.response.URL.absoluteString hasPrefix:@"http://m.bxwx8.org"]) {
+        decisionHandler(WKNavigationResponsePolicyCancel);
+        return;
+    }
     decisionHandler(WKNavigationResponsePolicyAllow);
     NSLog(@"navigationResponse =%@",navigationResponse.response);
 }
@@ -136,14 +177,7 @@
         });
         
         NSLog(@"book_content string＝%@",countElement.stringValue);
-   
-        if (_textString) {
-            
-            NSData *textData =[_textString dataUsingEncoding:4];
-            NSString *textPath =[DYFileManageHelp getCacheFilePathString:@"吞雷天尸.text"];
-            BOOL isSucess=[textData writeToFile:textPath atomically:YES];
-            NSLog(@"isSucess =%@",@(isSucess));
-        }
+        
     }
 //    pagesURL=@"http://www.baidu.com";
     NSMutableURLRequest *request =[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:pagesURL]];
@@ -174,16 +208,37 @@
     if (countElement) {
         NSString *bookContent =countElement.stringValue;
         model.bookContent=bookContent;
-        
         [_textString appendString:model.pageTitle];
         [_textString appendString:@"\n"];
         [_textString appendString:model.bookContent];
+        [_textString appendString:@"\n"];
         NSLog(@"\n $$$$$$ text content  $$$$$$$$ \n ");
-
     }
     NSLog(@"text content = %@ ",model.pageTitle);
+}
+-(void)downloadTextBeginPage:(NSInteger)beginPage toEndPage:(NSInteger)endPage{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 耗时的操作
+        NSArray *matchLists=[DYFileManageHelp getBooksSourcePath];
+        NSDictionary *pagesDic = matchLists[1];
 
+        [_pagesData enumerateObjectsUsingBlock:^(DYBookPageModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSArray *pages = pagesDic[@"book_pages"];
+            NSDictionary *subPageDic=pages[0];
+            [self downloadSubContent:obj withPathDic:subPageDic];
+            
+        }];
+    });
 
+}
+-(void)wirteTextToLocal{
+    if (_textString) {
+        
+        NSData *textData =[_textString dataUsingEncoding:4];
+        NSString *textPath =[DYFileManageHelp getCacheFilePathString:@"吞雷天尸.text"];
+        BOOL isSucess=[textData writeToFile:textPath atomically:YES];
+        NSLog(@"path=\n %@ \nisSucess =%@",textPath,@(isSucess));
+    }
 }
 #pragma mark - Navigation
 
@@ -197,7 +252,7 @@
  
 }
 -(void)clickNavLeftBtn:(id)sender{
-    
+    [[DYFileManageHelp shareFileManageHelpr] getDBCacheBooks];
     [self.navigationController popViewControllerAnimated:YES];
 }
 // right nav button

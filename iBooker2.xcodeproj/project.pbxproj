@@ -19,11 +19,44 @@
 		048CD4421DC9E81600E7F571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048CD4411DC9E81600E7F571 /* Assets.xcassets */; };
 		048CD4451DC9E81600E7F571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048CD4431DC9E81600E7F571 /* LaunchScreen.storyboard */; };
 		048CD4511DC9F61600E7F571 /* DYBookerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD4501DC9F61600E7F571 /* DYBookerListTableViewCell.m */; };
+		049BF9D81DE6878500F3B7C2 /* EPageIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9B81DE6878500F3B7C2 /* EPageIndexView.m */; };
+		049BF9D91DE6878500F3B7C2 /* EReaderFontBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9BA1DE6878500F3B7C2 /* EReaderFontBar.m */; };
+		049BF9DA1DE6878500F3B7C2 /* EReaderFontBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049BF9BB1DE6878500F3B7C2 /* EReaderFontBar.xib */; };
+		049BF9DB1DE6878500F3B7C2 /* EReaderToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9BD1DE6878500F3B7C2 /* EReaderToolBar.m */; };
+		049BF9DC1DE6878500F3B7C2 /* EReaderToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049BF9BE1DE6878500F3B7C2 /* EReaderToolBar.xib */; };
+		049BF9DD1DE6878500F3B7C2 /* EReaderTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9C01DE6878500F3B7C2 /* EReaderTopBar.m */; };
+		049BF9DE1DE6878500F3B7C2 /* EReaderTopBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049BF9C11DE6878500F3B7C2 /* EReaderTopBar.xib */; };
+		049BF9DF1DE6878500F3B7C2 /* NSAttributedString+TReaderPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9C31DE6878500F3B7C2 /* NSAttributedString+TReaderPage.m */; };
+		049BF9E01DE6878500F3B7C2 /* TReaderBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9C51DE6878500F3B7C2 /* TReaderBook.m */; };
+		049BF9E11DE6878500F3B7C2 /* TReaderChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9C71DE6878500F3B7C2 /* TReaderChapter.m */; };
+		049BF9E21DE6878500F3B7C2 /* TReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9C91DE6878500F3B7C2 /* TReaderManager.m */; };
+		049BF9E31DE6878500F3B7C2 /* TReaderMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9CB1DE6878500F3B7C2 /* TReaderMark.m */; };
+		049BF9E41DE6878500F3B7C2 /* TReaderMarkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9CD1DE6878500F3B7C2 /* TReaderMarkController.m */; };
+		049BF9E51DE6878500F3B7C2 /* TReaderPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9CF1DE6878500F3B7C2 /* TReaderPager.m */; };
+		049BF9E61DE6878500F3B7C2 /* TReaderTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9D11DE6878500F3B7C2 /* TReaderTextController.m */; };
+		049BF9E71DE6878500F3B7C2 /* TReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9D31DE6878500F3B7C2 /* TReaderViewController.m */; };
+		049BF9E81DE6878500F3B7C2 /* UIColor+TReaderTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9D51DE6878500F3B7C2 /* UIColor+TReaderTheme.m */; };
+		049BF9E91DE6878500F3B7C2 /* UIView+NIB.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9D71DE6878500F3B7C2 /* UIView+NIB.m */; };
+		049BFA071DE6878C00F3B7C2 /* EDbHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9ED1DE6878C00F3B7C2 /* EDbHandle.m */; };
+		049BFA081DE6878C00F3B7C2 /* EDbObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9EF1DE6878C00F3B7C2 /* EDbObject.m */; };
+		049BFA0A1DE6878C00F3B7C2 /* NSMutableAttributedString+TY.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9F41DE6878C00F3B7C2 /* NSMutableAttributedString+TY.m */; };
+		049BFA0B1DE6878C00F3B7C2 /* TYAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9F61DE6878C00F3B7C2 /* TYAttributedLabel.m */; };
+		049BFA0C1DE6878C00F3B7C2 /* TYDrawStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9F81DE6878C00F3B7C2 /* TYDrawStorage.m */; };
+		049BFA0D1DE6878C00F3B7C2 /* TYImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9FA1DE6878C00F3B7C2 /* TYImageCache.m */; };
+		049BFA0E1DE6878C00F3B7C2 /* TYImageStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9FC1DE6878C00F3B7C2 /* TYImageStorage.m */; };
+		049BFA0F1DE6878C00F3B7C2 /* TYLinkTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9FE1DE6878C00F3B7C2 /* TYLinkTextStorage.m */; };
+		049BFA101DE6878C00F3B7C2 /* TYTextContainer+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BF9FF1DE6878C00F3B7C2 /* TYTextContainer+Extended.m */; };
+		049BFA111DE6878C00F3B7C2 /* TYTextContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BFA011DE6878C00F3B7C2 /* TYTextContainer.m */; };
+		049BFA121DE6878C00F3B7C2 /* TYTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BFA031DE6878C00F3B7C2 /* TYTextStorage.m */; };
+		049BFA131DE6878C00F3B7C2 /* TYViewStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BFA061DE6878C00F3B7C2 /* TYViewStorage.m */; };
+		049BFA161DE68AB800F3B7C2 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 049BFA151DE68AB800F3B7C2 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		049BFA181DE68C4900F3B7C2 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 049BFA171DE68C4900F3B7C2 /* libsqlite3.0.tbd */; };
+		049BFA1A1DE68C5700F3B7C2 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 049BFA191DE68C5700F3B7C2 /* libicucore.tbd */; };
+		049BFA1C1DE6B55F00F3B7C2 /* Adblock.js in Resources */ = {isa = PBXBuildFile; fileRef = 049BFA1B1DE6B55F00F3B7C2 /* Adblock.js */; };
 		04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE21DD0884100D26388 /* DYBookModel.m */; };
 		04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */; };
 		04D07DA21DD5692A004B5D5A /* DYbookBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */; };
 		04D07DA51DD56B15004B5D5A /* DYSearchResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA41DD56B15004B5D5A /* DYSearchResultsTableController.m */; };
-		04D07DA81DD5975F004B5D5A /* DYxPathBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA71DD5975F004B5D5A /* DYxPathBookModel.m */; };
 		04D07DAB1DD59D0C004B5D5A /* DYBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DAA1DD59D0C004B5D5A /* DYBookDetailViewController.m */; };
 		04D52C3C1DE57DF500A99D35 /* DYRequestHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D52C3B1DE57DF500A99D35 /* DYRequestHelp.m */; };
 		04D52C3F1DE5ADA600A99D35 /* DYFileManageHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D52C3E1DE5ADA600A99D35 /* DYFileManageHelp.m */; };
@@ -55,6 +88,68 @@
 		048CD44D1DC9EAD400E7F571 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		048CD44F1DC9F61600E7F571 /* DYBookerListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookerListTableViewCell.h; sourceTree = "<group>"; };
 		048CD4501DC9F61600E7F571 /* DYBookerListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookerListTableViewCell.m; sourceTree = "<group>"; };
+		049BF9B71DE6878500F3B7C2 /* EPageIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPageIndexView.h; sourceTree = "<group>"; };
+		049BF9B81DE6878500F3B7C2 /* EPageIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPageIndexView.m; sourceTree = "<group>"; };
+		049BF9B91DE6878500F3B7C2 /* EReaderFontBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EReaderFontBar.h; sourceTree = "<group>"; };
+		049BF9BA1DE6878500F3B7C2 /* EReaderFontBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EReaderFontBar.m; sourceTree = "<group>"; };
+		049BF9BB1DE6878500F3B7C2 /* EReaderFontBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EReaderFontBar.xib; sourceTree = "<group>"; };
+		049BF9BC1DE6878500F3B7C2 /* EReaderToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EReaderToolBar.h; sourceTree = "<group>"; };
+		049BF9BD1DE6878500F3B7C2 /* EReaderToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EReaderToolBar.m; sourceTree = "<group>"; };
+		049BF9BE1DE6878500F3B7C2 /* EReaderToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EReaderToolBar.xib; sourceTree = "<group>"; };
+		049BF9BF1DE6878500F3B7C2 /* EReaderTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EReaderTopBar.h; sourceTree = "<group>"; };
+		049BF9C01DE6878500F3B7C2 /* EReaderTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EReaderTopBar.m; sourceTree = "<group>"; };
+		049BF9C11DE6878500F3B7C2 /* EReaderTopBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EReaderTopBar.xib; sourceTree = "<group>"; };
+		049BF9C21DE6878500F3B7C2 /* NSAttributedString+TReaderPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+TReaderPage.h"; sourceTree = "<group>"; };
+		049BF9C31DE6878500F3B7C2 /* NSAttributedString+TReaderPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+TReaderPage.m"; sourceTree = "<group>"; };
+		049BF9C41DE6878500F3B7C2 /* TReaderBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderBook.h; sourceTree = "<group>"; };
+		049BF9C51DE6878500F3B7C2 /* TReaderBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderBook.m; sourceTree = "<group>"; };
+		049BF9C61DE6878500F3B7C2 /* TReaderChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderChapter.h; sourceTree = "<group>"; };
+		049BF9C71DE6878500F3B7C2 /* TReaderChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderChapter.m; sourceTree = "<group>"; };
+		049BF9C81DE6878500F3B7C2 /* TReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderManager.h; sourceTree = "<group>"; };
+		049BF9C91DE6878500F3B7C2 /* TReaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderManager.m; sourceTree = "<group>"; };
+		049BF9CA1DE6878500F3B7C2 /* TReaderMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderMark.h; sourceTree = "<group>"; };
+		049BF9CB1DE6878500F3B7C2 /* TReaderMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderMark.m; sourceTree = "<group>"; };
+		049BF9CC1DE6878500F3B7C2 /* TReaderMarkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderMarkController.h; sourceTree = "<group>"; };
+		049BF9CD1DE6878500F3B7C2 /* TReaderMarkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderMarkController.m; sourceTree = "<group>"; };
+		049BF9CE1DE6878500F3B7C2 /* TReaderPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderPager.h; sourceTree = "<group>"; };
+		049BF9CF1DE6878500F3B7C2 /* TReaderPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderPager.m; sourceTree = "<group>"; };
+		049BF9D01DE6878500F3B7C2 /* TReaderTextController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderTextController.h; sourceTree = "<group>"; };
+		049BF9D11DE6878500F3B7C2 /* TReaderTextController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderTextController.m; sourceTree = "<group>"; };
+		049BF9D21DE6878500F3B7C2 /* TReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReaderViewController.h; sourceTree = "<group>"; };
+		049BF9D31DE6878500F3B7C2 /* TReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReaderViewController.m; sourceTree = "<group>"; };
+		049BF9D41DE6878500F3B7C2 /* UIColor+TReaderTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TReaderTheme.h"; sourceTree = "<group>"; };
+		049BF9D51DE6878500F3B7C2 /* UIColor+TReaderTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TReaderTheme.m"; sourceTree = "<group>"; };
+		049BF9D61DE6878500F3B7C2 /* UIView+NIB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NIB.h"; sourceTree = "<group>"; };
+		049BF9D71DE6878500F3B7C2 /* UIView+NIB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NIB.m"; sourceTree = "<group>"; };
+		049BF9EC1DE6878C00F3B7C2 /* EDbHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDbHandle.h; sourceTree = "<group>"; };
+		049BF9ED1DE6878C00F3B7C2 /* EDbHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDbHandle.m; sourceTree = "<group>"; };
+		049BF9EE1DE6878C00F3B7C2 /* EDbObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDbObject.h; sourceTree = "<group>"; };
+		049BF9EF1DE6878C00F3B7C2 /* EDbObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDbObject.m; sourceTree = "<group>"; };
+		049BF9F31DE6878C00F3B7C2 /* NSMutableAttributedString+TY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+TY.h"; sourceTree = "<group>"; };
+		049BF9F41DE6878C00F3B7C2 /* NSMutableAttributedString+TY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+TY.m"; sourceTree = "<group>"; };
+		049BF9F51DE6878C00F3B7C2 /* TYAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAttributedLabel.h; sourceTree = "<group>"; };
+		049BF9F61DE6878C00F3B7C2 /* TYAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAttributedLabel.m; sourceTree = "<group>"; };
+		049BF9F71DE6878C00F3B7C2 /* TYDrawStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDrawStorage.h; sourceTree = "<group>"; };
+		049BF9F81DE6878C00F3B7C2 /* TYDrawStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDrawStorage.m; sourceTree = "<group>"; };
+		049BF9F91DE6878C00F3B7C2 /* TYImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYImageCache.h; sourceTree = "<group>"; };
+		049BF9FA1DE6878C00F3B7C2 /* TYImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYImageCache.m; sourceTree = "<group>"; };
+		049BF9FB1DE6878C00F3B7C2 /* TYImageStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYImageStorage.h; sourceTree = "<group>"; };
+		049BF9FC1DE6878C00F3B7C2 /* TYImageStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYImageStorage.m; sourceTree = "<group>"; };
+		049BF9FD1DE6878C00F3B7C2 /* TYLinkTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYLinkTextStorage.h; sourceTree = "<group>"; };
+		049BF9FE1DE6878C00F3B7C2 /* TYLinkTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYLinkTextStorage.m; sourceTree = "<group>"; };
+		049BF9FF1DE6878C00F3B7C2 /* TYTextContainer+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TYTextContainer+Extended.m"; sourceTree = "<group>"; };
+		049BFA001DE6878C00F3B7C2 /* TYTextContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTextContainer.h; sourceTree = "<group>"; };
+		049BFA011DE6878C00F3B7C2 /* TYTextContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTextContainer.m; sourceTree = "<group>"; };
+		049BFA021DE6878C00F3B7C2 /* TYTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTextStorage.h; sourceTree = "<group>"; };
+		049BFA031DE6878C00F3B7C2 /* TYTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTextStorage.m; sourceTree = "<group>"; };
+		049BFA041DE6878C00F3B7C2 /* TYTextStorageProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTextStorageProtocol.h; sourceTree = "<group>"; };
+		049BFA051DE6878C00F3B7C2 /* TYViewStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYViewStorage.h; sourceTree = "<group>"; };
+		049BFA061DE6878C00F3B7C2 /* TYViewStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYViewStorage.m; sourceTree = "<group>"; };
+		049BFA141DE68AB800F3B7C2 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		049BFA151DE68AB800F3B7C2 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		049BFA171DE68C4900F3B7C2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		049BFA191DE68C5700F3B7C2 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		049BFA1B1DE6B55F00F3B7C2 /* Adblock.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Adblock.js; sourceTree = "<group>"; };
 		04B77CE11DD0884100D26388 /* DYBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookModel.h; sourceTree = "<group>"; };
 		04B77CE21DD0884100D26388 /* DYBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookModel.m; sourceTree = "<group>"; };
 		04B77CE51DD08CCA00D26388 /* DYSearchBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchBookTableViewController.h; sourceTree = "<group>"; };
@@ -63,8 +158,6 @@
 		04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYbookBaseTableViewController.m; sourceTree = "<group>"; };
 		04D07DA31DD56B15004B5D5A /* DYSearchResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchResultsTableController.h; sourceTree = "<group>"; };
 		04D07DA41DD56B15004B5D5A /* DYSearchResultsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSearchResultsTableController.m; sourceTree = "<group>"; };
-		04D07DA61DD5975F004B5D5A /* DYxPathBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYxPathBookModel.h; sourceTree = "<group>"; };
-		04D07DA71DD5975F004B5D5A /* DYxPathBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYxPathBookModel.m; sourceTree = "<group>"; };
 		04D07DA91DD59D0C004B5D5A /* DYBookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookDetailViewController.h; sourceTree = "<group>"; };
 		04D07DAA1DD59D0C004B5D5A /* DYBookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookDetailViewController.m; sourceTree = "<group>"; };
 		04D52C3A1DE57DF500A99D35 /* DYRequestHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYRequestHelp.h; sourceTree = "<group>"; };
@@ -82,6 +175,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049BFA1A1DE68C5700F3B7C2 /* libicucore.tbd in Frameworks */,
+				049BFA181DE68C4900F3B7C2 /* libsqlite3.0.tbd in Frameworks */,
 				85DDA3DAD5A6102E29063A06 /* libPods-iBooker2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +243,7 @@
 		048CD4351DC9E81600E7F571 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				049BFA1B1DE6B55F00F3B7C2 /* Adblock.js */,
 				0413E5D61DD9ABE1009D6253 /* demo.js */,
 				048CD4361DC9E81600E7F571 /* main.m */,
 				042007631DE3FF010097002F /* ReadTextResourcesList.plist */,
@@ -165,6 +261,95 @@
 			name = AllBookCell;
 			sourceTree = "<group>";
 		};
+		049BF9B61DE6878500F3B7C2 /* TBookReader */ = {
+			isa = PBXGroup;
+			children = (
+				049BF9B71DE6878500F3B7C2 /* EPageIndexView.h */,
+				049BF9B81DE6878500F3B7C2 /* EPageIndexView.m */,
+				049BF9B91DE6878500F3B7C2 /* EReaderFontBar.h */,
+				049BF9BA1DE6878500F3B7C2 /* EReaderFontBar.m */,
+				049BF9BB1DE6878500F3B7C2 /* EReaderFontBar.xib */,
+				049BF9BC1DE6878500F3B7C2 /* EReaderToolBar.h */,
+				049BF9BD1DE6878500F3B7C2 /* EReaderToolBar.m */,
+				049BF9BE1DE6878500F3B7C2 /* EReaderToolBar.xib */,
+				049BF9BF1DE6878500F3B7C2 /* EReaderTopBar.h */,
+				049BF9C01DE6878500F3B7C2 /* EReaderTopBar.m */,
+				049BF9C11DE6878500F3B7C2 /* EReaderTopBar.xib */,
+				049BF9C21DE6878500F3B7C2 /* NSAttributedString+TReaderPage.h */,
+				049BF9C31DE6878500F3B7C2 /* NSAttributedString+TReaderPage.m */,
+				049BF9C41DE6878500F3B7C2 /* TReaderBook.h */,
+				049BF9C51DE6878500F3B7C2 /* TReaderBook.m */,
+				049BF9C61DE6878500F3B7C2 /* TReaderChapter.h */,
+				049BF9C71DE6878500F3B7C2 /* TReaderChapter.m */,
+				049BF9C81DE6878500F3B7C2 /* TReaderManager.h */,
+				049BF9C91DE6878500F3B7C2 /* TReaderManager.m */,
+				049BF9CA1DE6878500F3B7C2 /* TReaderMark.h */,
+				049BF9CB1DE6878500F3B7C2 /* TReaderMark.m */,
+				049BF9CC1DE6878500F3B7C2 /* TReaderMarkController.h */,
+				049BF9CD1DE6878500F3B7C2 /* TReaderMarkController.m */,
+				049BF9CE1DE6878500F3B7C2 /* TReaderPager.h */,
+				049BF9CF1DE6878500F3B7C2 /* TReaderPager.m */,
+				049BF9D01DE6878500F3B7C2 /* TReaderTextController.h */,
+				049BF9D11DE6878500F3B7C2 /* TReaderTextController.m */,
+				049BF9D21DE6878500F3B7C2 /* TReaderViewController.h */,
+				049BF9D31DE6878500F3B7C2 /* TReaderViewController.m */,
+				049BF9D41DE6878500F3B7C2 /* UIColor+TReaderTheme.h */,
+				049BF9D51DE6878500F3B7C2 /* UIColor+TReaderTheme.m */,
+				049BF9D61DE6878500F3B7C2 /* UIView+NIB.h */,
+				049BF9D71DE6878500F3B7C2 /* UIView+NIB.m */,
+			);
+			path = TBookReader;
+			sourceTree = "<group>";
+		};
+		049BF9EA1DE6878C00F3B7C2 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				049BFA141DE68AB800F3B7C2 /* RegexKitLite.h */,
+				049BFA151DE68AB800F3B7C2 /* RegexKitLite.m */,
+				049BF9EB1DE6878C00F3B7C2 /* DbObject */,
+				049BF9F21DE6878C00F3B7C2 /* TYAttributedLabel */,
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		049BF9EB1DE6878C00F3B7C2 /* DbObject */ = {
+			isa = PBXGroup;
+			children = (
+				049BF9EC1DE6878C00F3B7C2 /* EDbHandle.h */,
+				049BF9ED1DE6878C00F3B7C2 /* EDbHandle.m */,
+				049BF9EE1DE6878C00F3B7C2 /* EDbObject.h */,
+				049BF9EF1DE6878C00F3B7C2 /* EDbObject.m */,
+			);
+			path = DbObject;
+			sourceTree = "<group>";
+		};
+		049BF9F21DE6878C00F3B7C2 /* TYAttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				049BF9F31DE6878C00F3B7C2 /* NSMutableAttributedString+TY.h */,
+				049BF9F41DE6878C00F3B7C2 /* NSMutableAttributedString+TY.m */,
+				049BF9F51DE6878C00F3B7C2 /* TYAttributedLabel.h */,
+				049BF9F61DE6878C00F3B7C2 /* TYAttributedLabel.m */,
+				049BF9F71DE6878C00F3B7C2 /* TYDrawStorage.h */,
+				049BF9F81DE6878C00F3B7C2 /* TYDrawStorage.m */,
+				049BF9F91DE6878C00F3B7C2 /* TYImageCache.h */,
+				049BF9FA1DE6878C00F3B7C2 /* TYImageCache.m */,
+				049BF9FB1DE6878C00F3B7C2 /* TYImageStorage.h */,
+				049BF9FC1DE6878C00F3B7C2 /* TYImageStorage.m */,
+				049BF9FD1DE6878C00F3B7C2 /* TYLinkTextStorage.h */,
+				049BF9FE1DE6878C00F3B7C2 /* TYLinkTextStorage.m */,
+				049BF9FF1DE6878C00F3B7C2 /* TYTextContainer+Extended.m */,
+				049BFA001DE6878C00F3B7C2 /* TYTextContainer.h */,
+				049BFA011DE6878C00F3B7C2 /* TYTextContainer.m */,
+				049BFA021DE6878C00F3B7C2 /* TYTextStorage.h */,
+				049BFA031DE6878C00F3B7C2 /* TYTextStorage.m */,
+				049BFA041DE6878C00F3B7C2 /* TYTextStorageProtocol.h */,
+				049BFA051DE6878C00F3B7C2 /* TYViewStorage.h */,
+				049BFA061DE6878C00F3B7C2 /* TYViewStorage.m */,
+			);
+			path = TYAttributedLabel;
+			sourceTree = "<group>";
+		};
 		04B77CE01DD0881400D26388 /* allBookerModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,8 +357,6 @@
 				04B77CE21DD0884100D26388 /* DYBookModel.m */,
 				042007601DE3FDC00097002F /* DYBookPageModel.h */,
 				042007611DE3FDC00097002F /* DYBookPageModel.m */,
-				04D07DA61DD5975F004B5D5A /* DYxPathBookModel.h */,
-				04D07DA71DD5975F004B5D5A /* DYxPathBookModel.m */,
 			);
 			name = allBookerModel;
 			sourceTree = "<group>";
@@ -181,6 +364,8 @@
 		04B77CE41DD08A1800D26388 /* BookPublic */ = {
 			isa = PBXGroup;
 			children = (
+				049BF9EA1DE6878C00F3B7C2 /* Vender */,
+				049BF9B61DE6878500F3B7C2 /* TBookReader */,
 				04D07DA01DD5692A004B5D5A /* DYbookBaseTableViewController.h */,
 				04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */,
 				04D52C3A1DE57DF500A99D35 /* DYRequestHelp.h */,
@@ -194,6 +379,8 @@
 		38F14C858BB146D2285244B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				049BFA191DE68C5700F3B7C2 /* libicucore.tbd */,
+				049BFA171DE68C4900F3B7C2 /* libsqlite3.0.tbd */,
 				C7CD6735B75410F8EE97C674 /* libPods-iBooker2.a */,
 			);
 			name = Frameworks;
@@ -242,7 +429,7 @@
 				TargetAttributes = {
 					048CD4311DC9E81600E7F571 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = WYGCD5397D;
+						DevelopmentTeam = A89QXMNZDV;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -276,11 +463,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0413E5D71DD9ABE1009D6253 /* demo.js in Resources */,
+				049BF9DE1DE6878500F3B7C2 /* EReaderTopBar.xib in Resources */,
 				04F2FCBD1DD1DB7800D7474F /* DYBookerListTableViewCell.xib in Resources */,
+				049BF9DA1DE6878500F3B7C2 /* EReaderFontBar.xib in Resources */,
 				048CD4451DC9E81600E7F571 /* LaunchScreen.storyboard in Resources */,
 				048CD4421DC9E81600E7F571 /* Assets.xcassets in Resources */,
 				048CD4401DC9E81600E7F571 /* Main.storyboard in Resources */,
+				049BF9DC1DE6878500F3B7C2 /* EReaderToolBar.xib in Resources */,
 				042007641DE3FF010097002F /* ReadTextResourcesList.plist in Resources */,
+				049BFA1C1DE6B55F00F3B7C2 /* Adblock.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,21 +530,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049BF9D81DE6878500F3B7C2 /* EPageIndexView.m in Sources */,
+				049BF9E11DE6878500F3B7C2 /* TReaderChapter.m in Sources */,
 				048CD4511DC9F61600E7F571 /* DYBookerListTableViewCell.m in Sources */,
 				04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */,
+				049BFA131DE6878C00F3B7C2 /* TYViewStorage.m in Sources */,
 				048CD43D1DC9E81600E7F571 /* ViewController.m in Sources */,
 				04D52C3C1DE57DF500A99D35 /* DYRequestHelp.m in Sources */,
+				049BF9E41DE6878500F3B7C2 /* TReaderMarkController.m in Sources */,
 				048CD43A1DC9E81600E7F571 /* AppDelegate.m in Sources */,
+				049BFA081DE6878C00F3B7C2 /* EDbObject.m in Sources */,
+				049BFA0E1DE6878C00F3B7C2 /* TYImageStorage.m in Sources */,
 				04D07DA21DD5692A004B5D5A /* DYbookBaseTableViewController.m in Sources */,
 				042007621DE3FDC00097002F /* DYBookPageModel.m in Sources */,
+				049BF9DB1DE6878500F3B7C2 /* EReaderToolBar.m in Sources */,
+				049BF9E01DE6878500F3B7C2 /* TReaderBook.m in Sources */,
+				049BFA121DE6878C00F3B7C2 /* TYTextStorage.m in Sources */,
+				049BFA0F1DE6878C00F3B7C2 /* TYLinkTextStorage.m in Sources */,
 				04D07DA51DD56B15004B5D5A /* DYSearchResultsTableController.m in Sources */,
+				049BFA0D1DE6878C00F3B7C2 /* TYImageCache.m in Sources */,
+				049BFA071DE6878C00F3B7C2 /* EDbHandle.m in Sources */,
 				04D52C3F1DE5ADA600A99D35 /* DYFileManageHelp.m in Sources */,
+				049BF9E91DE6878500F3B7C2 /* UIView+NIB.m in Sources */,
+				049BFA0C1DE6878C00F3B7C2 /* TYDrawStorage.m in Sources */,
 				048CD4371DC9E81600E7F571 /* main.m in Sources */,
+				049BF9D91DE6878500F3B7C2 /* EReaderFontBar.m in Sources */,
+				049BF9E71DE6878500F3B7C2 /* TReaderViewController.m in Sources */,
+				049BF9E81DE6878500F3B7C2 /* UIColor+TReaderTheme.m in Sources */,
+				049BFA161DE68AB800F3B7C2 /* RegexKitLite.m in Sources */,
 				046FAC111DE43976009C5214 /* DYBookHomeWebViewController.m in Sources */,
+				049BF9E51DE6878500F3B7C2 /* TReaderPager.m in Sources */,
 				0420075F1DE3F2190097002F /* DYDownloadBook.m in Sources */,
+				049BFA0A1DE6878C00F3B7C2 /* NSMutableAttributedString+TY.m in Sources */,
+				049BFA101DE6878C00F3B7C2 /* TYTextContainer+Extended.m in Sources */,
 				04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */,
-				04D07DA81DD5975F004B5D5A /* DYxPathBookModel.m in Sources */,
+				049BF9E61DE6878500F3B7C2 /* TReaderTextController.m in Sources */,
+				049BF9E31DE6878500F3B7C2 /* TReaderMark.m in Sources */,
+				049BF9DF1DE6878500F3B7C2 /* NSAttributedString+TReaderPage.m in Sources */,
+				049BFA0B1DE6878C00F3B7C2 /* TYAttributedLabel.m in Sources */,
 				04D07DAB1DD59D0C004B5D5A /* DYBookDetailViewController.m in Sources */,
+				049BF9E21DE6878500F3B7C2 /* TReaderManager.m in Sources */,
+				049BFA111DE6878C00F3B7C2 /* TYTextContainer.m in Sources */,
+				049BF9DD1DE6878500F3B7C2 /* EReaderTopBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

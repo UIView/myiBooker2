@@ -16,5 +16,9 @@
 @property NSString *bookAuthor; //文章作者
 @property NSString *bookStates; //文章状态，是否完结
 @property NSString *bookContentUrl; //文章内容路径
-
+@property NSInteger readingPage; //文章读取页数
+@property NSInteger cachegPage; // 缓存文章页数
+@property NSString *readingContent; //读取文章内容
+// create
++(NSString *)createDYBookModelSql;
 @end
