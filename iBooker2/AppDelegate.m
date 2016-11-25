@@ -25,7 +25,7 @@
 //    [JPEngine evaluateScript:script];
     
     // 创建数据库
-    [[DYFileManageHelp shareFileManageHelpr] initDatabase];
+    [[DYFileManageHelp shareFileManageHelp] initDatabase];
     
     return YES;
 }

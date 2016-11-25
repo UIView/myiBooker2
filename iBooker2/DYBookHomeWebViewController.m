@@ -49,42 +49,44 @@
     
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     
-    WKUserContentController *userController = [[WKUserContentController alloc] init];
-    NSString * adPath =[[NSBundle mainBundle] pathForResource:@"Adblock" ofType:@"js"];
-    
-    NSString *javascriptString = [NSString stringWithContentsOfFile:adPath encoding:NSUTF8StringEncoding error:nil];
-    WKUserScript *javascrip =[[WKUserScript alloc] initWithSource:javascriptString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:NO];
-    [userController addUserScript:javascrip];
-    
-    [userController addScriptMessageHandler:self name:@"didFinishLoading"];
-    
-    config.userContentController = userController;
+//    WKUserContentController *userController = [[WKUserContentController alloc] init];
+//    NSString * adPath =[[NSBundle mainBundle] pathForResource:@"Adblock" ofType:@"js"];
+//    
+//    NSString *javascriptString = [NSString stringWithContentsOfFile:adPath encoding:NSUTF8StringEncoding error:nil];
+//    WKUserScript *javascrip =[[WKUserScript alloc] initWithSource:javascriptString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:NO];
+//    [userController addUserScript:javascrip];
+//    
+//    [userController addScriptMessageHandler:self name:@"didFinishLoading"];
+//    
+//    config.userContentController = userController;
     
     WKWebView *testWebView =[[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) configuration:config];
     testWebView.navigationDelegate=self;
     testWebView.customUserAgent=@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0";
     [self.view addSubview:testWebView];
     NSString *urlString =pagesURL;
-    NSURLRequest *urlRequest =[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+//    NSURLRequest *urlRequest =[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
 //    [testWebView loadRequest:urlRequest];
     self.webView=testWebView;
-    [self testDB];
+//    [self testDB];
 }
 -(void)testDB{
 
-    DYBookModel *bookItem=[[DYBookModel alloc] init];
-    bookItem.title=@"xxxtsssll";
-    bookItem.bookDate=@"xxxttst";
-    bookItem.bookIamgeStr=@"xxxttst";
-    bookItem.bookDescription=@"sss";
-    bookItem.bookAuthor=@" ttst";
-    bookItem.bookStates=@"xxxttst";
-    bookItem.bookContentUrl=@"http/wwww.baidu.com/// @";
-    bookItem.readingPage=1;
-    bookItem.cachegPage=12;
-    bookItem.readingContent=@"dfdf";
+//    DYBookModel *bookItem=[[DYBookModel alloc] init];
+//    bookItem.title=@"吞雷天尸";
+//    bookItem.bookDate=@"2014-09-08";
+//    bookItem.bookIamgeStr=@"xxxttst";
+//    bookItem.bookDescription=@"很多时候，我们在查询一个表的时候，不想得到里面的记录内容，只是想简单的得到符合查询条件的记录条数。FMDB中有一个很简单的方法就可以实现，见下面的代码实例";
+//    bookItem.bookAuthor=@"阳光男孩";
+//    bookItem.bookStates=@"完结";
+//    bookItem.bookContentUrl=@"https://www.baidu.com/s?ie=utf-8&f";
+//    bookItem.readingPage=1;
+//    bookItem.cachegPage=12;
+//    bookItem.readingContent=@"dfdf";
+//    
+//    [[DYFileManageHelp shareFileManageHelp] insertBooksToDB:@[bookItem]];
+    NSArray *bookPages=[[DYFileManageHelp shareFileManageHelp] getDBCacheBookPagesWithBookID:1];
     
-    [[DYFileManageHelp shareFileManageHelpr] insertBooksToDB:@[bookItem,bookItem,bookItem]];
 
 }
 
@@ -127,17 +129,18 @@
     NSString *book_content_base_path = [[pagesURL componentsSeparatedByString:pagesDic[@"book_pages_c_url"]] firstObject];
 
     NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:pagesURL]]; //下载网页数据
-    NSStringEncoding enc_gbk = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingDOSChineseSimplif);
+    NSStringEncoding enc_gbk = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSString *downString =[[NSString alloc] initWithData:data encoding:enc_gbk];
     downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     downString=[downString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     downString=[downString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
 
-    data=[downString dataUsingEncoding:4];
+//    data=[downString dataUsingEncoding:4];
 
     NSError *error;
-    ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
+//    ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
+    ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithString:downString encoding:enc_gbk error:&error];
     ONOXMLElement *countElement= [doc firstChildWithXPath:pagespath]; //
     [countElement.children enumerateObjectsUsingBlock:^(ONOXMLElement *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSArray *pages = pagesDic[@"book_pages"];
@@ -172,40 +175,37 @@
                 NSArray *pages = pagesDic[@"book_pages"];
                 NSDictionary *subPageDic=pages[0];
                 [self downloadSubContent:obj withPathDic:subPageDic];
-                
             }];
+            NSInteger bookID =[[DYFileManageHelp shareFileManageHelp] getDBCacheBookCount];
+            [[DYFileManageHelp shareFileManageHelp] insertBookPageToDB:_pagesData withBookID:bookID];
         });
         
         NSLog(@"book_content string＝%@",countElement.stringValue);
         
     }
-//    pagesURL=@"http://www.baidu.com";
+
     NSMutableURLRequest *request =[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:pagesURL]];
     NSURLSessionDataTask * testDataTask=[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-        NSString *downString =[[NSString alloc] initWithData:data encoding:enc];
-        NSLog(@"down string＝%@",downString);
-        
-        NSError *xmlError;
-        ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithString:downString encoding:4 error:&xmlError];
-        ONOXMLElement *countElement= [doc firstChildWithXPath:pagespath]; //
-        NSLog(@"countElement.stringValue \n＝%@",countElement.stringValue);
 
     }];
     [testDataTask resume];
-//
+
 
 }
 -(void)downloadSubContent:(DYBookPageModel *)model withPathDic:(NSDictionary *)pagesDic{
     NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:model.bookContentURL]]; //下载网页数据
-    NSString *downString =[[NSString alloc] initWithData:data encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)];
+    NSStringEncoding enc_gbk = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSString *downString =[[NSString alloc] initWithData:data encoding:enc_gbk];
+    downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     downString=[downString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     downString=[downString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     data=[downString dataUsingEncoding:4];
     NSError *error;
     ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
+//    ONOXMLDocument *doc=[ONOXMLDocument XMLDocumentWithString:downString encoding:enc_gbk error:&error];
     ONOXMLElement *countElement= [doc firstChildWithXPath:pagesDic[@"book_content"]]; //
-    if (countElement) {
+    if (countElement.stringValue) {
         NSString *bookContent =countElement.stringValue;
         model.bookContent=bookContent;
         [_textString appendString:model.pageTitle];
@@ -226,8 +226,9 @@
             NSArray *pages = pagesDic[@"book_pages"];
             NSDictionary *subPageDic=pages[0];
             [self downloadSubContent:obj withPathDic:subPageDic];
-            
         }];
+        NSInteger bookID =[[DYFileManageHelp shareFileManageHelp] getDBCacheBookCount];
+        [[DYFileManageHelp shareFileManageHelp] insertBookPageToDB:_pagesData withBookID:bookID];
     });
 
 }
@@ -252,7 +253,7 @@
  
 }
 -(void)clickNavLeftBtn:(id)sender{
-    [[DYFileManageHelp shareFileManageHelpr] getDBCacheBooks];
+    [[DYFileManageHelp shareFileManageHelp] getDBCacheBooks];
     [self.navigationController popViewControllerAnimated:YES];
 }
 // right nav button

@@ -7,6 +7,8 @@
 //
 
 #import "TReaderBook.h"
+#import "DYFileManageHelp.h"
+#import "DYBookPageModel.h"
 
 @interface TReaderBook ()
 
@@ -29,15 +31,22 @@
     _curChpaterIndex = chapter.chapterIndex;
 }
 
+
 - (TReaderChapter *)openBookWithChapter:(NSInteger)chapter
 {
     TReaderChapter *readerChapter = [[TReaderChapter alloc]init];
     readerChapter.chapterIndex = chapter;
     _curChpaterIndex = chapter;
     NSError *error = nil;
-    NSString *chapter_num = [NSString stringWithFormat:@"Chapter%d",(int)chapter];
-    NSString *path1 = [[NSBundle mainBundle] pathForResource:chapter_num ofType:@"txt"];
-    readerChapter.chapterContent = [NSString stringWithContentsOfFile:path1 encoding:NSUTF8StringEncoding error:&error];
+    NSArray *bookPages =[[DYFileManageHelp shareFileManageHelp] getDBCacheBookPagesWithBookID:1];
+    chapter=chapter-1;
+    DYBookPageModel *model=bookPages[chapter];
+    readerChapter.chapterContent = model.bookContent;
+//    NSString *chapter_num = [NSString stringWithFormat:@"Chapter%d",(int)chapter];
+//    NSString *path1 = [[NSBundle mainBundle] pathForResource:chapter_num ofType:@"txt"];
+//    NSString *sharePath=[NSString stringWithFormat:@"book%@.text",@(chapter)];
+//    NSString *path1 = [DYFileManageHelp getDocumentFilePathString:sharePath];
+//    readerChapter.chapterContent = [NSString stringWithContentsOfFile:path1 encoding:NSUTF8StringEncoding error:&error];
     
     if (error) {
         NSLog(@"open book chapter error:%@",error);

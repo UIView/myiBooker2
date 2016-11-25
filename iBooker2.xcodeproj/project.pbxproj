@@ -55,6 +55,7 @@
 		049BFA1C1DE6B55F00F3B7C2 /* Adblock.js in Resources */ = {isa = PBXBuildFile; fileRef = 049BFA1B1DE6B55F00F3B7C2 /* Adblock.js */; };
 		04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE21DD0884100D26388 /* DYBookModel.m */; };
 		04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */; };
+		04C423281DE80E0100580010 /* NSString+DYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C423271DE80E0100580010 /* NSString+DYCategory.m */; };
 		04D07DA21DD5692A004B5D5A /* DYbookBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */; };
 		04D07DA51DD56B15004B5D5A /* DYSearchResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DA41DD56B15004B5D5A /* DYSearchResultsTableController.m */; };
 		04D07DAB1DD59D0C004B5D5A /* DYBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D07DAA1DD59D0C004B5D5A /* DYBookDetailViewController.m */; };
@@ -154,6 +155,8 @@
 		04B77CE21DD0884100D26388 /* DYBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookModel.m; sourceTree = "<group>"; };
 		04B77CE51DD08CCA00D26388 /* DYSearchBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchBookTableViewController.h; sourceTree = "<group>"; };
 		04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYSearchBookTableViewController.m; sourceTree = "<group>"; };
+		04C423261DE80E0100580010 /* NSString+DYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DYCategory.h"; sourceTree = "<group>"; };
+		04C423271DE80E0100580010 /* NSString+DYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DYCategory.m"; sourceTree = "<group>"; };
 		04D07DA01DD5692A004B5D5A /* DYbookBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYbookBaseTableViewController.h; sourceTree = "<group>"; };
 		04D07DA11DD5692A004B5D5A /* DYbookBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYbookBaseTableViewController.m; sourceTree = "<group>"; };
 		04D07DA31DD56B15004B5D5A /* DYSearchResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchResultsTableController.h; sourceTree = "<group>"; };
@@ -364,6 +367,7 @@
 		04B77CE41DD08A1800D26388 /* BookPublic */ = {
 			isa = PBXGroup;
 			children = (
+				04C423251DE80DC000580010 /* OCPublicCategory */,
 				049BF9EA1DE6878C00F3B7C2 /* Vender */,
 				049BF9B61DE6878500F3B7C2 /* TBookReader */,
 				04D07DA01DD5692A004B5D5A /* DYbookBaseTableViewController.h */,
@@ -374,6 +378,15 @@
 				04D52C3E1DE5ADA600A99D35 /* DYFileManageHelp.m */,
 			);
 			name = BookPublic;
+			sourceTree = "<group>";
+		};
+		04C423251DE80DC000580010 /* OCPublicCategory */ = {
+			isa = PBXGroup;
+			children = (
+				04C423261DE80E0100580010 /* NSString+DYCategory.h */,
+				04C423271DE80E0100580010 /* NSString+DYCategory.m */,
+			);
+			path = OCPublicCategory;
 			sourceTree = "<group>";
 		};
 		38F14C858BB146D2285244B1 /* Frameworks */ = {
@@ -544,6 +557,7 @@
 				04D07DA21DD5692A004B5D5A /* DYbookBaseTableViewController.m in Sources */,
 				042007621DE3FDC00097002F /* DYBookPageModel.m in Sources */,
 				049BF9DB1DE6878500F3B7C2 /* EReaderToolBar.m in Sources */,
+				04C423281DE80E0100580010 /* NSString+DYCategory.m in Sources */,
 				049BF9E01DE6878500F3B7C2 /* TReaderBook.m in Sources */,
 				049BFA121DE6878C00F3B7C2 /* TYTextStorage.m in Sources */,
 				049BFA0F1DE6878C00F3B7C2 /* TYLinkTextStorage.m in Sources */,
@@ -702,7 +716,7 @@
 				DEVELOPMENT_TEAM = A89QXMNZDV;
 				INFOPLIST_FILE = iBooker2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nimo.iBooker212;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nimo.iBooker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -720,7 +734,7 @@
 				DEVELOPMENT_TEAM = A89QXMNZDV;
 				INFOPLIST_FILE = iBooker2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nimo.iBooker212;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nimo.iBooker2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

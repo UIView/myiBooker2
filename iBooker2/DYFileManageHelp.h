@@ -12,7 +12,7 @@
 @interface DYFileManageHelp : NSObject
 @property FMDatabase *dbData;
 
-+(DYFileManageHelp *) shareFileManageHelpr;
++(DYFileManageHelp *) shareFileManageHelp;
 
 ///
 +(NSString *)getDocumentFilePathString:(NSString *)fileName;
@@ -34,5 +34,11 @@
 
 -(NSArray *)getDBCacheBooks;
 -(NSArray *)getDBCacheBookPagesWithBookID:(NSInteger)bookID;
-
+// 书
+-(NSInteger)getDBCacheBookCount;
+-(NSInteger)getDBCachePageCountWithBookID:(NSInteger)bookid;
+/// 删除书，也删除了章节
+-(BOOL)deleDBCacheBookWithBookID:(NSInteger)bookID;
+/// 写在本地text。
+-(BOOL)wirteTextToLocal:(NSInteger)bookID;
 @end

@@ -14,7 +14,7 @@ NSString *const DYReadTextResourcesPath = @"BooksSource/ReadTextResourcesList.pl
 NSString *const DYReadDBPath = @"cacheBookdata.db";
 
 @implementation DYFileManageHelp
-+(DYFileManageHelp *) shareFileManageHelpr
++(DYFileManageHelp *) shareFileManageHelp
 {
     static DYFileManageHelp *_instance = nil;
     static dispatch_once_t onceToken;
@@ -98,8 +98,10 @@ NSString *const DYReadDBPath = @"cacheBookdata.db";
     }
     @try {
         for (NSString * sqlStr in ary) {
-            [self.dbData executeUpdate:sqlStr];
-            NSLog(@"%@",[NSString stringWithFormat:@"[SQL] %@",sqlStr]);
+            BOOL isSucess=[self.dbData executeUpdate:sqlStr];
+//            NSLog(@"%@",[NSString stringWithFormat:@"[SQL] %@",sqlStr]);
+            NSLog(@"[sql]  db update %@",@(isSucess));
+
         }
     }
     @catch (NSException *exception) {
@@ -111,7 +113,6 @@ NSString *const DYReadDBPath = @"cacheBookdata.db";
     }
     [self.dbData close];
 }
-
 
 // 这种写法默认格式化特殊字符
 -(BOOL)insertBooksToDB:(NSArray *)books{
@@ -128,10 +129,13 @@ NSString *const DYReadDBPath = @"cacheBookdata.db";
 
 -(BOOL)insertBookPageToDB:(NSArray *)pages withBookID:(NSInteger)bookID{
 
+    if (bookID==0) {
+        return NO;
+    }
     if (pages.count>0) {
         NSMutableArray *bookItems=[NSMutableArray array];
         for (DYBookPageModel *pageItem in pages) {
-            NSString *sql=[NSString stringWithFormat:@"replace into 'main'.'t_pages_tab' ('book_id','page_title','page_url','sorting','content','content_url','reading_content') VALUES (%@,'%@','%@','%@','%@','%@','%@')",@(bookID),pageItem.pageTitle,pageItem.bookContentURL,pageItem.sorting,pageItem.bookContent,pageItem.bookContentURL,@""];
+            NSString *sql=[NSString stringWithFormat:@"replace into 'main'.'t_pages_tab' ('book_id','page_title','page_url','sorting','content') VALUES (%@,'%@','%@','%@','%@')",@(bookID),pageItem.pageTitle,pageItem.bookContentURL,pageItem.sorting,pageItem.bookContent];
             [bookItems addObject:sql];
         }
         return [self updateSqlArray:bookItems];
@@ -175,6 +179,9 @@ NSString *const DYReadDBPath = @"cacheBookdata.db";
         [self.dbData close];
         return @[];
     }
+    if (bookID==0) {
+        return @[];
+    }
     NSMutableArray *bookItems=[NSMutableArray array];
     NSString * sqlStr=[NSString stringWithFormat:@"select * from t_pages_tab where book_id=%@",@(bookID)];
     NSLog(@"%@",[NSString stringWithFormat:@"[SQL] %@",sqlStr]);
@@ -190,15 +197,62 @@ NSString *const DYReadDBPath = @"cacheBookdata.db";
     [self.dbData close];
     return bookItems;
 }
+-(NSInteger)getDBCacheBookCount{
+    if (![self.dbData open]) {
+        NSLog(@"打开数据库失败！");
+        [self.dbData close];
+        return 0;
+    }
+    NSString * sqlStr=[NSString stringWithFormat:@"SELECT COUNT(*) FROM t_books_tab"];
+    NSInteger count = [self.dbData intForQuery:sqlStr];
+    [self.dbData close];
+    return count;
+}
+-(NSInteger)getDBCachePageCountWithBookID:(NSInteger)bookid{
+    if (![self.dbData open]) {
+        NSLog(@"打开数据库失败！");
+        [self.dbData close];
+        return 0;
+    }
+    NSString * sqlStr=[NSString stringWithFormat:@"SELECT COUNT(book_id) AS CustomerNilsen FROM t_pages_tab WHERE book_id=%@",@(bookid)];
+    NSInteger count = [self.dbData intForQuery:sqlStr];
+    [self.dbData close];
+    return count;
+}
 -(BOOL)deleDBCacheBookWithBookID:(NSInteger)bookID{
     if (![self.dbData open]) {
         NSLog(@"打开数据库失败！");
         [self.dbData close];
         return NO;
     }
-    NSString * sqlStr=[NSString stringWithFormat:@"DELETE FROM Person WHERE book_id = %@",@(bookID)];
+    NSString * sqlStr=[NSString stringWithFormat:@"DELETE FROM t_books_tab"];
     BOOL isScuess=[self.dbData executeUpdate:sqlStr];
+    sqlStr=[NSString stringWithFormat:@"DELETE FROM t_pages_tab WHERE book_id = %@",@(bookID)];
+    isScuess=[self.dbData executeUpdate:sqlStr];
     [self.dbData close];
+    NSLog(@"[sql] DELETE is %@",@(isScuess));
     return isScuess;
+}
+//
+-(BOOL)wirteTextToLocal:(NSInteger)bookID{
+    NSMutableString * _textString=nil;
+    NSArray *bookPages=[self getDBCacheBookPagesWithBookID:bookID];
+    [bookPages enumerateObjectsUsingBlock:^(DYBookPageModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [_textString appendString:obj.pageTitle];
+        [_textString appendString:@"\n"];
+        [_textString appendString:obj.bookContent];
+        [_textString appendString:@"\n"];
+    }];
+    
+    if (_textString) {
+        NSData *textData =[_textString dataUsingEncoding:4];
+        NSString *sharePath=[NSString stringWithFormat:@"book%@.text",@(bookID)];
+        NSString *textPath =[DYFileManageHelp getDocumentFilePathString:sharePath];
+        BOOL isSucess=[textData writeToFile:textPath atomically:YES];
+        NSLog(@"path=\n %@ \nisSucess =%@",textPath,@(isSucess));
+        return isSucess;
+    }
+    
+    return NO;
 }
 @end
