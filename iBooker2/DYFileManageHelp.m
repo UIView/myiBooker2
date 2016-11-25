@@ -156,6 +156,7 @@ NSString *const DYReadDBPath = @"cacheBookdata.db";
     FMResultSet *resultSet = [self.dbData executeQuery:sqlStr];
     while ([resultSet next]) {
         DYBookModel *bookItem=[[DYBookModel alloc] init];
+        bookItem.bookID=[resultSet longForColumn:@"book_id"]; //文章标题
         bookItem.title=[resultSet stringForColumn:@"title"]; //文章标题
         bookItem.bookDate=[resultSet stringForColumn:@"book_date"]; //文章发表时间
         bookItem.bookIamgeStr=[resultSet stringForColumn:@"book_image"]; //文章小图

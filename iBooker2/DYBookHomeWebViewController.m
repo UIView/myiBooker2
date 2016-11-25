@@ -72,20 +72,20 @@
 }
 -(void)testDB{
 
-//    DYBookModel *bookItem=[[DYBookModel alloc] init];
-//    bookItem.title=@"吞雷天尸";
-//    bookItem.bookDate=@"2014-09-08";
-//    bookItem.bookIamgeStr=@"xxxttst";
-//    bookItem.bookDescription=@"很多时候，我们在查询一个表的时候，不想得到里面的记录内容，只是想简单的得到符合查询条件的记录条数。FMDB中有一个很简单的方法就可以实现，见下面的代码实例";
-//    bookItem.bookAuthor=@"阳光男孩";
-//    bookItem.bookStates=@"完结";
-//    bookItem.bookContentUrl=@"https://www.baidu.com/s?ie=utf-8&f";
-//    bookItem.readingPage=1;
-//    bookItem.cachegPage=12;
-//    bookItem.readingContent=@"dfdf";
-//    
-//    [[DYFileManageHelp shareFileManageHelp] insertBooksToDB:@[bookItem]];
-    NSArray *bookPages=[[DYFileManageHelp shareFileManageHelp] getDBCacheBookPagesWithBookID:1];
+    DYBookModel *bookItem=[[DYBookModel alloc] init];
+    bookItem.title=@"吞雷天尸";
+    bookItem.bookDate=@"2014-09-08";
+    bookItem.bookIamgeStr=@"http://www.23wx.com/files/article/image/25/25863/25863min.jpg";
+    bookItem.bookDescription=@"华国F市，爆发的流星雨在星空之中纵横。某座居民楼天台上，沈从抱着陪伴自己多年的笔记本电脑，目光没有焦距的盯着夜空。没有亲人，朋友寥寥，一个人孤独的在这个城市中残喘着。流星的光芒在沈从的眼眸中闪烁，“如有可能，哪怕只是闪耀一时，也当无憾…”……………….";
+    bookItem.bookAuthor=@"阳光男孩";
+    bookItem.bookStates=@"完结";
+    bookItem.bookContentUrl=@"";
+    bookItem.readingPage=1;
+    bookItem.cachegPage=0;
+    bookItem.readingContent=@"dfdf";
+    
+    [[DYFileManageHelp shareFileManageHelp] insertBooksToDB:@[bookItem]];
+//    NSArray *bookPages=[[DYFileManageHelp shareFileManageHelp] getDBCacheBookPagesWithBookID:1];
     
 
 }
@@ -200,10 +200,10 @@
     downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     downString=[downString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     downString=[downString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    data=[downString dataUsingEncoding:4];
-    NSError *error;
-    ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:data error:&error];
-//    ONOXMLDocument *doc=[ONOXMLDocument XMLDocumentWithString:downString encoding:enc_gbk error:&error];
+    NSData *tempdata=[downString dataUsingEncoding:4];
+    NSError *xmlError;
+//    ONOXMLDocument *doc=[ONOXMLDocument HTMLDocumentWithData:tempdata error:&xmlError];
+    ONOXMLDocument *doc=[ONOXMLDocument XMLDocumentWithString:downString encoding:4 error:&xmlError];
     ONOXMLElement *countElement= [doc firstChildWithXPath:pagesDic[@"book_content"]]; //
     if (countElement.stringValue) {
         NSString *bookContent =countElement.stringValue;

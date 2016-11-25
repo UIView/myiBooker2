@@ -39,9 +39,12 @@
     _curChpaterIndex = chapter;
     NSError *error = nil;
     NSArray *bookPages =[[DYFileManageHelp shareFileManageHelp] getDBCacheBookPagesWithBookID:1];
-    chapter=chapter-1;
-    DYBookPageModel *model=bookPages[chapter];
-    readerChapter.chapterContent = model.bookContent;
+    if (bookPages.count>0) {
+        chapter=chapter-1;
+        DYBookPageModel *model=bookPages[chapter];
+        readerChapter.chapterContent = model.bookContent;
+    }
+
 //    NSString *chapter_num = [NSString stringWithFormat:@"Chapter%d",(int)chapter];
 //    NSString *path1 = [[NSBundle mainBundle] pathForResource:chapter_num ofType:@"txt"];
 //    NSString *sharePath=[NSString stringWithFormat:@"book%@.text",@(chapter)];

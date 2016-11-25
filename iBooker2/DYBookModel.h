@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface DYBookModel : NSObject
+@property NSInteger bookID; //文章标示
 @property NSString *title; //文章标题
 @property NSString *bookDate; //文章发表时间
 @property NSString *bookIamgeStr; //文章小图

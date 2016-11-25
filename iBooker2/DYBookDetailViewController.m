@@ -18,6 +18,7 @@
 #import "EReaderFontBar.h"
 #import "EPageIndexView.h"
 #import "UIView+NIB.h"
+#import "DYFileManageHelp.h"
 
 @interface DYBookDetailViewController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate, EReaderToolBarDelegate,EReaderTopBarDelegate,EReaderFontBarDelegate,TReaderMarkDelegate>
 
@@ -119,9 +120,9 @@
     if (!_readerBook) {
         _readerBook = [[TReaderBook alloc]init];
         // test data
-        _readerBook.bookId = 123456;
+        _readerBook.bookId = _bookModel.bookID;
         _readerBook.bookName = @"Chapter";
-        _readerBook.totalChapter = 1;
+        _readerBook.totalChapter = [[DYFileManageHelp shareFileManageHelp] getDBCachePageCountWithBookID:_bookModel.bookID];
     }
     
     _chapter = [self getBookChapter:chapterIndex];
