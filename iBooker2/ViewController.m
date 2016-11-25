@@ -9,7 +9,7 @@
 
 #import "ViewController.h"
 #import "DYBookerListTableViewCell.h"
-#import "DYFileManageHelp.h"
+#import "DYDBBaseHelp.h"
 #import "DYBookPageModel.h"
 
 @interface ViewController ()
@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.title= @"iBooker";
     self.tableView.tableFooterView=[[UIView alloc] init];
-    NSArray *books=[[DYFileManageHelp shareFileManageHelp] getDBCacheBooks];
+    NSArray *books=[[DYDBBaseHelp shareDBBaseHelp] getDBCacheBooks];
     self.readingBooks=[[NSMutableArray alloc] initWithArray:books];
     [self.tableView reloadData];
 }

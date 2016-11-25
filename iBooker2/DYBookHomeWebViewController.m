@@ -11,8 +11,10 @@
 #import "Ono.h"
 #import "DYBookPageModel.h"
 #import "DYBookModel.h"
-#import "DYFileManageHelp.h"
-
+#import "DYDBBaseHelp.h"
+#import "NSString+HTML.h"
+#import "GTMNSString+HTML.h"
+#import "NSString+DYCategory.h"
 
 @interface DYBookHomeWebViewController ()<WKNavigationDelegate,NSURLSessionDelegate,WKScriptMessageHandler>
 @property (weak, nonatomic) IBOutlet UITextField *pageUrlTextField;
@@ -71,7 +73,7 @@
 //    [self testDB];
 }
 -(void)testDB{
-
+//
     DYBookModel *bookItem=[[DYBookModel alloc] init];
     bookItem.title=@"吞雷天尸";
     bookItem.bookDate=@"2014-09-08";
@@ -84,9 +86,10 @@
     bookItem.cachegPage=0;
     bookItem.readingContent=@"dfdf";
     
-    [[DYFileManageHelp shareFileManageHelp] insertBooksToDB:@[bookItem]];
-//    NSArray *bookPages=[[DYFileManageHelp shareFileManageHelp] getDBCacheBookPagesWithBookID:1];
-    
+    [[DYDBBaseHelp shareDBBaseHelp] insertBooksToDB:@[bookItem]];
+    NSArray *bookPages=[[DYDBBaseHelp shareDBBaseHelp] getDBCacheBookPagesWithBookID:1];
+
+
 
 }
 
@@ -176,8 +179,8 @@
                 NSDictionary *subPageDic=pages[0];
                 [self downloadSubContent:obj withPathDic:subPageDic];
             }];
-            NSInteger bookID =[[DYFileManageHelp shareFileManageHelp] getDBCacheBookCount];
-            [[DYFileManageHelp shareFileManageHelp] insertBookPageToDB:_pagesData withBookID:bookID];
+            NSInteger bookID =[[DYDBBaseHelp shareDBBaseHelp] getDBCacheBookCount];
+            [[DYDBBaseHelp shareDBBaseHelp] insertBookPageToDB:_pagesData withBookID:bookID];
         });
         
         NSLog(@"book_content string＝%@",countElement.stringValue);
@@ -196,8 +199,8 @@
     NSData *data= [NSData dataWithContentsOfURL:[NSURL URLWithString:model.bookContentURL]]; //下载网页数据
     NSStringEncoding enc_gbk = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSString *downString =[[NSString alloc] initWithData:data encoding:enc_gbk];
-    downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//    downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//    downString=[downString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     downString=[downString stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     downString=[downString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     NSData *tempdata=[downString dataUsingEncoding:4];
@@ -206,41 +209,31 @@
     ONOXMLDocument *doc=[ONOXMLDocument XMLDocumentWithString:downString encoding:4 error:&xmlError];
     ONOXMLElement *countElement= [doc firstChildWithXPath:pagesDic[@"book_content"]]; //
     if (countElement.stringValue) {
-        NSString *bookContent =countElement.stringValue;
-        model.bookContent=bookContent;
-        [_textString appendString:model.pageTitle];
-        [_textString appendString:@"\n"];
+        NSString *bookContent =[NSString stringWithFormat:@"%@\n%@",model.pageTitle,countElement.description];
+         model.bookContent=bookContent;
         [_textString appendString:model.bookContent];
         [_textString appendString:@"\n"];
         NSLog(@"\n $$$$$$ text content  $$$$$$$$ \n ");
     }
     NSLog(@"text content = %@ ",model.pageTitle);
 }
--(void)downloadTextBeginPage:(NSInteger)beginPage toEndPage:(NSInteger)endPage{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // 耗时的操作
-        NSArray *matchLists=[DYFileManageHelp getBooksSourcePath];
-        NSDictionary *pagesDic = matchLists[1];
+//-(void)downloadTextBeginPage:(NSInteger)beginPage toEndPage:(NSInteger)endPage{
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        // 耗时的操作
+//        NSArray *matchLists=[DYFileManageHelp getBooksSourcePath];
+//        NSDictionary *pagesDic = matchLists[1];
+//
+//        [_pagesData enumerateObjectsUsingBlock:^(DYBookPageModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            NSArray *pages = pagesDic[@"book_pages"];
+//            NSDictionary *subPageDic=pages[0];
+//            [self downloadSubContent:obj withPathDic:subPageDic];
+//        }];
+//        NSInteger bookID =[[DYDBBaseHelp shareDBBaseHelp] getDBCacheBookCount];
+//        [[DYDBBaseHelp shareDBBaseHelp] insertBookPageToDB:_pagesData withBookID:bookID];
+//    });
+//
+//}
 
-        [_pagesData enumerateObjectsUsingBlock:^(DYBookPageModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSArray *pages = pagesDic[@"book_pages"];
-            NSDictionary *subPageDic=pages[0];
-            [self downloadSubContent:obj withPathDic:subPageDic];
-        }];
-        NSInteger bookID =[[DYFileManageHelp shareFileManageHelp] getDBCacheBookCount];
-        [[DYFileManageHelp shareFileManageHelp] insertBookPageToDB:_pagesData withBookID:bookID];
-    });
-
-}
--(void)wirteTextToLocal{
-    if (_textString) {
-        
-        NSData *textData =[_textString dataUsingEncoding:4];
-        NSString *textPath =[DYFileManageHelp getCacheFilePathString:@"吞雷天尸.text"];
-        BOOL isSucess=[textData writeToFile:textPath atomically:YES];
-        NSLog(@"path=\n %@ \nisSucess =%@",textPath,@(isSucess));
-    }
-}
 #pragma mark - Navigation
 
 -(void)setLeftNavButtonAction{
@@ -253,7 +246,7 @@
  
 }
 -(void)clickNavLeftBtn:(id)sender{
-    [[DYFileManageHelp shareFileManageHelp] getDBCacheBooks];
+    [[DYDBBaseHelp shareDBBaseHelp] getDBCacheBooks];
     [self.navigationController popViewControllerAnimated:YES];
 }
 // right nav button

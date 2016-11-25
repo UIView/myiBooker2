@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DYFileManageHelp.h"
+#import "DYDBBaseHelp.h"
 #import <JSPatchPlatform/JPEngine.h>
 
 @interface AppDelegate ()
@@ -25,7 +25,7 @@
 //    [JPEngine evaluateScript:script];
     
     // 创建数据库
-    [[DYFileManageHelp shareFileManageHelp] initDatabase];
+    [[DYDBBaseHelp shareDBBaseHelp] initDatabase];
     
     return YES;
 }

@@ -7,8 +7,8 @@
 //
 
 #import "TReaderBook.h"
-#import "DYFileManageHelp.h"
 #import "DYBookPageModel.h"
+#import "DYDBBaseHelp.h"
 
 @interface TReaderBook ()
 
@@ -38,7 +38,7 @@
     readerChapter.chapterIndex = chapter;
     _curChpaterIndex = chapter;
     NSError *error = nil;
-    NSArray *bookPages =[[DYFileManageHelp shareFileManageHelp] getDBCacheBookPagesWithBookID:1];
+    NSArray *bookPages =[[DYDBBaseHelp shareDBBaseHelp] getDBCacheBookPagesWithBookID:1];
     if (bookPages.count>0) {
         chapter=chapter-1;
         DYBookPageModel *model=bookPages[chapter];
