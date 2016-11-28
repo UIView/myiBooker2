@@ -71,12 +71,13 @@ NSString *const DYDBBaseBookNumberDidChange = @"DY_DBBaseBookNumberDidChange";
     }
     @catch (NSException *exception) {
         NSLog(@"初始化数据库失败！");
+        [self.dbData close];
         return NO;
     }
     @finally {
+        [self.dbData close];
         return YES;
     }
-    [self.dbData close];
 }
 
 // 这种写法默认格式化特殊字符
@@ -87,9 +88,10 @@ NSString *const DYDBBaseBookNumberDidChange = @"DY_DBBaseBookNumberDidChange";
             NSString *sql=[NSString stringWithFormat:@"replace into 'main'.'t_books_tab' ('title','book_date','book_image','book_descrip','book_state','author','content_url','reading_page','cache_page','reading_content') VALUES ('%@','%@','%@','%@','%@','%@','%@',%@,%@,'%@')",bookItem.title,bookItem.bookDate,bookItem.bookIamgeStr,bookItem.bookDescription,bookItem.bookStates,bookItem.bookAuthor,bookItem.bookContentUrl,@(bookItem.readingPage),@(bookItem.cachegPage),bookItem.readingContent];
             [bookItems addObject:sql];
         }
-        NSDictionary *addDic = @{@"book":books,@"isAdd":@YES};
+        BOOL isSucess=[self updateSqlArray:bookItems];
+        NSDictionary *addDic = @{@"book":@"",@"isAdd":@YES};
         [[NSNotificationCenter defaultCenter] postNotificationName:DYDBBaseBookNumberDidChange object:addDic];
-        return [self updateSqlArray:bookItems];
+        return isSucess;
     }
     return NO;
 }

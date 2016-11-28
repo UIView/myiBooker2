@@ -59,6 +59,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+
 #pragma mark - add view
 
 - (void)addSingleTapGesture

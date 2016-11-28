@@ -59,7 +59,10 @@
     NSDictionary *subDic = notifica.object;
     BOOL isAdd = [subDic[@"isAdd"] boolValue];
     if (isAdd) {
-        [self.readingBooks addObjectsFromArray:subDic[@"book"]];
+        [self.readingBooks removeAllObjects];
+        NSArray *books=[[DYDBBaseHelp shareDBBaseHelp] getDBCacheBooks];
+        self.readingBooks=[[NSMutableArray alloc] initWithArray:books];
+        
     }else{
         for (int i=0; i<self.readingBooks.count; i++) {
             DYBookModel *itemModel=self.readingBooks[i];

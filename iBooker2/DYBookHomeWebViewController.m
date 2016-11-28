@@ -87,10 +87,7 @@
     bookItem.readingContent=@"dfdf";
     
     [[DYDBBaseHelp shareDBBaseHelp] insertBooksToDB:@[bookItem]];
-    NSArray *bookPages=[[DYDBBaseHelp shareDBBaseHelp] getDBCacheBookPagesWithBookID:1];
-
-
-
+//    NSArray *bookPages=[[DYDBBaseHelp shareDBBaseHelp] getDBCacheBookPagesWithBookID:1];
 }
 
 #pragma mark - WKNavigationDelegate
@@ -209,7 +206,7 @@
     ONOXMLDocument *doc=[ONOXMLDocument XMLDocumentWithString:downString encoding:4 error:&xmlError];
     ONOXMLElement *countElement= [doc firstChildWithXPath:pagesDic[@"book_content"]]; //
     if (countElement.stringValue) {
-        NSString *bookContent =[NSString stringWithFormat:@"%@\n%@",model.pageTitle,countElement.description];
+        NSString *bookContent =[NSString stringWithFormat:@"%@\n\n%@",model.pageTitle,countElement.description];
          model.bookContent=bookContent;
         [_textString appendString:model.bookContent];
         [_textString appendString:@"\n"];
@@ -247,7 +244,6 @@
  
 }
 -(void)clickNavLeftBtn:(id)sender{
-    [[DYDBBaseHelp shareDBBaseHelp] getDBCacheBooks];
     [self.navigationController popViewControllerAnimated:YES];
 }
 // right nav button

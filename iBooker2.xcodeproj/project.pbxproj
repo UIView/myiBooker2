@@ -54,6 +54,7 @@
 		049BFA181DE68C4900F3B7C2 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 049BFA171DE68C4900F3B7C2 /* libsqlite3.0.tbd */; };
 		049BFA1A1DE68C5700F3B7C2 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 049BFA191DE68C5700F3B7C2 /* libicucore.tbd */; };
 		049BFA1C1DE6B55F00F3B7C2 /* Adblock.js in Resources */ = {isa = PBXBuildFile; fileRef = 049BFA1B1DE6B55F00F3B7C2 /* Adblock.js */; };
+		04A084641DEC3E0F003D435A /* DYLoadGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A084631DEC3E0F003D435A /* DYLoadGuideView.m */; };
 		04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE21DD0884100D26388 /* DYBookModel.m */; };
 		04B77CE71DD08CCA00D26388 /* DYSearchBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B77CE61DD08CCA00D26388 /* DYSearchBookTableViewController.m */; };
 		04C423281DE80E0100580010 /* NSString+DYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C423271DE80E0100580010 /* NSString+DYCategory.m */; };
@@ -157,6 +158,8 @@
 		049BFA171DE68C4900F3B7C2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		049BFA191DE68C5700F3B7C2 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		049BFA1B1DE6B55F00F3B7C2 /* Adblock.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Adblock.js; sourceTree = "<group>"; };
+		04A084621DEC3E0F003D435A /* DYLoadGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYLoadGuideView.h; sourceTree = "<group>"; };
+		04A084631DEC3E0F003D435A /* DYLoadGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYLoadGuideView.m; sourceTree = "<group>"; };
 		04B77CE11DD0884100D26388 /* DYBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookModel.h; sourceTree = "<group>"; };
 		04B77CE21DD0884100D26388 /* DYBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookModel.m; sourceTree = "<group>"; };
 		04B77CE51DD08CCA00D26388 /* DYSearchBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYSearchBookTableViewController.h; sourceTree = "<group>"; };
@@ -368,6 +371,15 @@
 			path = TYAttributedLabel;
 			sourceTree = "<group>";
 		};
+		04A084611DEC3E0F003D435A /* LoadGuideView */ = {
+			isa = PBXGroup;
+			children = (
+				04A084621DEC3E0F003D435A /* DYLoadGuideView.h */,
+				04A084631DEC3E0F003D435A /* DYLoadGuideView.m */,
+			);
+			path = LoadGuideView;
+			sourceTree = "<group>";
+		};
 		04B77CE01DD0881400D26388 /* allBookerModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +394,7 @@
 		04B77CE41DD08A1800D26388 /* BookPublic */ = {
 			isa = PBXGroup;
 			children = (
+				04A084611DEC3E0F003D435A /* LoadGuideView */,
 				04C423251DE80DC000580010 /* OCPublicCategory */,
 				049BF9EA1DE6878C00F3B7C2 /* Vender */,
 				049BF9B61DE6878500F3B7C2 /* TBookReader */,
@@ -569,6 +582,7 @@
 			files = (
 				049BF9D81DE6878500F3B7C2 /* EPageIndexView.m in Sources */,
 				049BF9E11DE6878500F3B7C2 /* TReaderChapter.m in Sources */,
+				04A084641DEC3E0F003D435A /* DYLoadGuideView.m in Sources */,
 				8E9B1FA01DE8833F0082C1DD /* GTMNSString+HTML.m in Sources */,
 				048CD4511DC9F61600E7F571 /* DYBookerListTableViewCell.m in Sources */,
 				04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */,
