@@ -208,18 +208,19 @@ NSString *const DYDBBaseBookNumberDidChange = @"DY_DBBaseBookNumberDidChange";
 }
 //
 -(BOOL)wirteTextToLocal:(NSInteger)bookID{
-    NSMutableString * _textString=nil;
+    NSMutableString * _textString=[[NSMutableString alloc] init];
     NSArray *bookPages=[self getDBCacheBookPagesWithBookID:bookID];
     [bookPages enumerateObjectsUsingBlock:^(DYBookPageModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [_textString appendString:obj.pageTitle];
-        [_textString appendString:@"\n"];
         [_textString appendString:obj.bookContent];
         [_textString appendString:@"\n"];
     }];
     
     if (_textString) {
-        NSData *textData =[_textString dataUsingEncoding:4];
-        NSString *sharePath=[NSString stringWithFormat:@"book%@.text",@(bookID)];
+        NSString *saveText=[_textString stringByReplacingOccurrencesOfString:@"<br/>" withString:@"\n"];
+        saveText=[saveText stringByReplacingOccurrencesOfString:@"<div class=\"txt\" id=\"txt\">" withString:@"      "];
+        saveText=[saveText stringByReplacingOccurrencesOfString:@"</div>" withString:@"      "];
+        NSData *textData =[saveText dataUsingEncoding:4];
+        NSString *sharePath=[NSString stringWithFormat:@"book%@.txt",@(bookID)];
         NSString *textPath =[DYFileManageHelp getDocumentFilePathString:sharePath];
         BOOL isSucess=[textData writeToFile:textPath atomically:YES];
         NSLog(@"path=\n %@ \nisSucess =%@",textPath,@(isSucess));

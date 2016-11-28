@@ -28,6 +28,7 @@
     self.readingBooks=[[NSMutableArray alloc] initWithArray:books];
     [self.tableView reloadData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addBooksNotificationAction:) name:DYDBBaseBookNumberDidChange object:nil];
+    [[DYDBBaseHelp shareDBBaseHelp] wirteTextToLocal:1];
 }
 
 
