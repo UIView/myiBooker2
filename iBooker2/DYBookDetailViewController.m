@@ -121,7 +121,7 @@
         _readerBook = [[TReaderBook alloc]init];
         // test data
         _readerBook.bookId = _bookModel.bookID;
-        _readerBook.bookName = @"Chapter";
+        _readerBook.bookName = _bookModel.title;
         _readerBook.totalChapter = [[DYDBBaseHelp shareDBBaseHelp] getDBCachePageCountWithBookID:_bookModel.bookID];
     }
     
@@ -381,7 +381,7 @@
             NSLog(@"--获取下一章");
             TReaderChapter *nextChapter = [self getBookNextChapter];
             [self confogureReaderController:readerVC page:0 chapter:nextChapter];
-            NSLog(@"总页码%ld 当前页码%ld",chapter.totalPage,_curPage+1);
+            NSLog(@" 获取下一章 总页码%ld 当前页码%ld",chapter.totalPage,_curPage+1);
             return  readerVC;
         }else {
             NSLog(@"已经是最后一页了");

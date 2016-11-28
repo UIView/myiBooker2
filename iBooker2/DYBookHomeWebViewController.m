@@ -67,8 +67,8 @@
     testWebView.customUserAgent=@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:50.0) Gecko/20100101 Firefox/50.0";
     [self.view addSubview:testWebView];
     NSString *urlString =pagesURL;
-//    NSURLRequest *urlRequest =[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
-//    [testWebView loadRequest:urlRequest];
+    NSURLRequest *urlRequest =[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    [testWebView loadRequest:urlRequest];
     self.webView=testWebView;
 //    [self testDB];
 }
@@ -237,8 +237,9 @@
 #pragma mark - Navigation
 
 -(void)setLeftNavButtonAction{
-    UIButton *leftBtn = [[UIButton alloc ]initWithFrame:CGRectMake(0, 0, 40, 30)];
+    UIButton *leftBtn = [[UIButton alloc ]initWithFrame:CGRectMake(0, 0, 40, 35)];
     [leftBtn addTarget:self action:@selector(clickNavLeftBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn setImage:[UIImage imageNamed:@"btn_back_red"] forState:UIControlStateNormal];
     UIBarButtonItem *leftBtnItem = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
     UIBarButtonItem *leftFixItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     leftFixItem.width=-10;

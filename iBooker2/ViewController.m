@@ -11,6 +11,7 @@
 #import "DYBookerListTableViewCell.h"
 #import "DYDBBaseHelp.h"
 #import "DYBookPageModel.h"
+#import "DYBookModel.h"
 
 @interface ViewController ()
 @property NSMutableArray *readingBooks;
@@ -26,6 +27,7 @@
     NSArray *books=[[DYDBBaseHelp shareDBBaseHelp] getDBCacheBooks];
     self.readingBooks=[[NSMutableArray alloc] initWithArray:books];
     [self.tableView reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addBooksNotificationAction:) name:DYDBBaseBookNumberDidChange object:nil];
 }
 
 
@@ -48,5 +50,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DYBookModel *model=self.readingBooks[indexPath.row];
     [self pushToDetailVC:model];
+}
+
+#pragma mark - Notification Action
+
+-(void)addBooksNotificationAction:(NSNotification *)notifica{
+    // 数据库处理
+    NSDictionary *subDic = notifica.object;
+    BOOL isAdd = [subDic[@"isAdd"] boolValue];
+    if (isAdd) {
+        [self.readingBooks addObjectsFromArray:subDic[@"book"]];
+    }else{
+        for (int i=0; i<self.readingBooks.count; i++) {
+            DYBookModel *itemModel=self.readingBooks[i];
+            if (itemModel.bookID==[subDic[@"book"] integerValue]) {
+                [self.readingBooks removeObject:itemModel];
+                break;
+            }
+        }
+    }
+    [self.tableView reloadData];
 }
 @end

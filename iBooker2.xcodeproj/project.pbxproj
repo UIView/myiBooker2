@@ -11,6 +11,7 @@
 		0420075F1DE3F2190097002F /* DYDownloadBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420075E1DE3F2190097002F /* DYDownloadBook.m */; };
 		042007621DE3FDC00097002F /* DYBookPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042007611DE3FDC00097002F /* DYBookPageModel.m */; };
 		042007641DE3FF010097002F /* ReadTextResourcesList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 042007631DE3FF010097002F /* ReadTextResourcesList.plist */; };
+		04434BDA1DEBF361005A88B7 /* ThirdAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04434BD91DEBF361005A88B7 /* ThirdAssets.xcassets */; };
 		046FAC111DE43976009C5214 /* DYBookHomeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FAC101DE43976009C5214 /* DYBookHomeWebViewController.m */; };
 		048CD4371DC9E81600E7F571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD4361DC9E81600E7F571 /* main.m */; };
 		048CD43A1DC9E81600E7F571 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 048CD4391DC9E81600E7F571 /* AppDelegate.m */; };
@@ -77,6 +78,7 @@
 		042007601DE3FDC00097002F /* DYBookPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookPageModel.h; sourceTree = "<group>"; };
 		042007611DE3FDC00097002F /* DYBookPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookPageModel.m; sourceTree = "<group>"; };
 		042007631DE3FF010097002F /* ReadTextResourcesList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadTextResourcesList.plist; sourceTree = "<group>"; };
+		04434BD91DEBF361005A88B7 /* ThirdAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThirdAssets.xcassets; sourceTree = "<group>"; };
 		046FAC0F1DE43976009C5214 /* DYBookHomeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYBookHomeWebViewController.h; sourceTree = "<group>"; };
 		046FAC101DE43976009C5214 /* DYBookHomeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYBookHomeWebViewController.m; sourceTree = "<group>"; };
 		048CD4321DC9E81600E7F571 /* iBooker2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBooker2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +250,7 @@
 				048CD44E1DC9F5D700E7F571 /* AllBookCell */,
 				048CD43E1DC9E81600E7F571 /* Main.storyboard */,
 				048CD4411DC9E81600E7F571 /* Assets.xcassets */,
+				04434BD91DEBF361005A88B7 /* ThirdAssets.xcassets */,
 				048CD4431DC9E81600E7F571 /* LaunchScreen.storyboard */,
 				048CD4461DC9E81600E7F571 /* Info.plist */,
 				048CD4351DC9E81600E7F571 /* Supporting Files */,
@@ -496,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0413E5D71DD9ABE1009D6253 /* demo.js in Resources */,
+				04434BDA1DEBF361005A88B7 /* ThirdAssets.xcassets in Resources */,
 				049BF9DE1DE6878500F3B7C2 /* EReaderTopBar.xib in Resources */,
 				04F2FCBD1DD1DB7800D7474F /* DYBookerListTableViewCell.xib in Resources */,
 				049BF9DA1DE6878500F3B7C2 /* EReaderFontBar.xib in Resources */,

@@ -7,6 +7,8 @@
 //
 
 #import "TYTextContainer.h"
+#import "HXAttributedString.h"
+
 
 #define kTextColor       [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]
 #define kLinkColor       [UIColor colorWithRed:0/255.0 green:91/255.0 blue:255/255.0 alpha:1]
@@ -89,7 +91,7 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
 {
     [self addTextStoragesWithAtrributedString:_attString];
     if (_attString == nil) {
-        _attString = [[NSMutableAttributedString alloc]init];
+//        _attString = [[NSMutableAttributedString alloc]init];
     }
     return [_attString copy];
 }

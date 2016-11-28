@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <FMDB/FMDB.h>
 
+extern NSString *const DYDBBaseBookNumberDidChange;
+
 @interface DYDBBaseHelp : NSObject
 @property FMDatabase *dbData;
 

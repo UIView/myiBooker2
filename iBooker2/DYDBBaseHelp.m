@@ -11,7 +11,8 @@
 #import "DYBookModel.h"
 #import "DYBookPageModel.h"
 
-NSString *const DYReadDBPath = @"cacheBookdata.db";
+static NSString *const DYReadDBPath = @"cacheBookdata.db";
+NSString *const DYDBBaseBookNumberDidChange = @"DY_DBBaseBookNumberDidChange";
 
 @implementation DYDBBaseHelp
 +(DYDBBaseHelp *) shareDBBaseHelp
@@ -86,6 +87,8 @@ NSString *const DYReadDBPath = @"cacheBookdata.db";
             NSString *sql=[NSString stringWithFormat:@"replace into 'main'.'t_books_tab' ('title','book_date','book_image','book_descrip','book_state','author','content_url','reading_page','cache_page','reading_content') VALUES ('%@','%@','%@','%@','%@','%@','%@',%@,%@,'%@')",bookItem.title,bookItem.bookDate,bookItem.bookIamgeStr,bookItem.bookDescription,bookItem.bookStates,bookItem.bookAuthor,bookItem.bookContentUrl,@(bookItem.readingPage),@(bookItem.cachegPage),bookItem.readingContent];
             [bookItems addObject:sql];
         }
+        NSDictionary *addDic = @{@"book":books,@"isAdd":@YES};
+        [[NSNotificationCenter defaultCenter] postNotificationName:DYDBBaseBookNumberDidChange object:addDic];
         return [self updateSqlArray:bookItems];
     }
     return NO;
@@ -190,11 +193,14 @@ NSString *const DYReadDBPath = @"cacheBookdata.db";
         [self.dbData close];
         return NO;
     }
-    NSString * sqlStr=[NSString stringWithFormat:@"DELETE FROM t_books_tab"];
+    
+    NSString * sqlStr=[NSString stringWithFormat:@"DELETE FROM t_books_tab WHERE book_id = %@",@(bookID)];
     BOOL isScuess=[self.dbData executeUpdate:sqlStr];
     sqlStr=[NSString stringWithFormat:@"DELETE FROM t_pages_tab WHERE book_id = %@",@(bookID)];
     isScuess=[self.dbData executeUpdate:sqlStr];
     [self.dbData close];
+    NSDictionary *addDic = @{@"book":@[@(bookID)],@"isAdd":@NO};
+    [[NSNotificationCenter defaultCenter] postNotificationName:DYDBBaseBookNumberDidChange object:addDic];
     NSLog(@"[sql] DELETE is %@",@(isScuess));
     return isScuess;
 }
