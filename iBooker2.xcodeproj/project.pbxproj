@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0408AF871E07D7EF00625C0C /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408AF821E07D7EF00625C0C /* PopoverAction.m */; };
+		0408AF881E07D7EF00625C0C /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408AF841E07D7EF00625C0C /* PopoverView.m */; };
+		0408AF891E07D7EF00625C0C /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408AF861E07D7EF00625C0C /* PopoverViewCell.m */; };
 		0413E5D71DD9ABE1009D6253 /* demo.js in Resources */ = {isa = PBXBuildFile; fileRef = 0413E5D61DD9ABE1009D6253 /* demo.js */; };
 		0420075F1DE3F2190097002F /* DYDownloadBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420075E1DE3F2190097002F /* DYDownloadBook.m */; };
 		042007621DE3FDC00097002F /* DYBookPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042007611DE3FDC00097002F /* DYBookPageModel.m */; };
@@ -72,6 +75,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0408AF811E07D7EF00625C0C /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
+		0408AF821E07D7EF00625C0C /* PopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAction.m; sourceTree = "<group>"; };
+		0408AF831E07D7EF00625C0C /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		0408AF841E07D7EF00625C0C /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		0408AF851E07D7EF00625C0C /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
+		0408AF861E07D7EF00625C0C /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		0413E5D61DD9ABE1009D6253 /* demo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = demo.js; sourceTree = "<group>"; };
 		0413E5E11DD9B051009D6253 /* iBooker2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iBooker2.entitlements; sourceTree = "<group>"; };
 		0420075D1DE3F2190097002F /* DYDownloadBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYDownloadBook.h; sourceTree = "<group>"; };
@@ -204,6 +213,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0408AF801E07D7EF00625C0C /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				0408AF811E07D7EF00625C0C /* PopoverAction.h */,
+				0408AF821E07D7EF00625C0C /* PopoverAction.m */,
+				0408AF831E07D7EF00625C0C /* PopoverView.h */,
+				0408AF841E07D7EF00625C0C /* PopoverView.m */,
+				0408AF851E07D7EF00625C0C /* PopoverViewCell.h */,
+				0408AF861E07D7EF00625C0C /* PopoverViewCell.m */,
+			);
+			path = PopoverView;
+			sourceTree = "<group>";
+		};
 		0420075C1DE3F1BA0097002F /* DownloadBook */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +416,7 @@
 		04B77CE41DD08A1800D26388 /* BookPublic */ = {
 			isa = PBXGroup;
 			children = (
+				0408AF801E07D7EF00625C0C /* PopoverView */,
 				04A084611DEC3E0F003D435A /* LoadGuideView */,
 				04C423251DE80DC000580010 /* OCPublicCategory */,
 				049BF9EA1DE6878C00F3B7C2 /* Vender */,
@@ -583,6 +606,7 @@
 				049BF9D81DE6878500F3B7C2 /* EPageIndexView.m in Sources */,
 				049BF9E11DE6878500F3B7C2 /* TReaderChapter.m in Sources */,
 				04A084641DEC3E0F003D435A /* DYLoadGuideView.m in Sources */,
+				0408AF891E07D7EF00625C0C /* PopoverViewCell.m in Sources */,
 				8E9B1FA01DE8833F0082C1DD /* GTMNSString+HTML.m in Sources */,
 				048CD4511DC9F61600E7F571 /* DYBookerListTableViewCell.m in Sources */,
 				04B77CE31DD0884100D26388 /* DYBookModel.m in Sources */,
@@ -616,6 +640,7 @@
 				049BFA161DE68AB800F3B7C2 /* RegexKitLite.m in Sources */,
 				046FAC111DE43976009C5214 /* DYBookHomeWebViewController.m in Sources */,
 				049BF9E51DE6878500F3B7C2 /* TReaderPager.m in Sources */,
+				0408AF881E07D7EF00625C0C /* PopoverView.m in Sources */,
 				0420075F1DE3F2190097002F /* DYDownloadBook.m in Sources */,
 				049BFA0A1DE6878C00F3B7C2 /* NSMutableAttributedString+TY.m in Sources */,
 				049BFA101DE6878C00F3B7C2 /* TYTextContainer+Extended.m in Sources */,
@@ -623,6 +648,7 @@
 				049BF9E61DE6878500F3B7C2 /* TReaderTextController.m in Sources */,
 				049BF9E31DE6878500F3B7C2 /* TReaderMark.m in Sources */,
 				049BF9DF1DE6878500F3B7C2 /* NSAttributedString+TReaderPage.m in Sources */,
+				0408AF871E07D7EF00625C0C /* PopoverAction.m in Sources */,
 				049BFA0B1DE6878C00F3B7C2 /* TYAttributedLabel.m in Sources */,
 				04D07DAB1DD59D0C004B5D5A /* DYBookDetailViewController.m in Sources */,
 				049BF9E21DE6878500F3B7C2 /* TReaderManager.m in Sources */,

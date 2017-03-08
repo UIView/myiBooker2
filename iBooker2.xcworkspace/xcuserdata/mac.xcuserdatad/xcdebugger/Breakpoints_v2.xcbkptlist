@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iBooker2/DYBookHomeWebViewController.m"
-            timestampString = "502021444.530583"
+            filePath = "iBooker2/DYBookDetailViewController.m"
+            timestampString = "502021974.770136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "-rightButtonAction:"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "-pageViewController:viewControllerAfterViewController:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iBooker2/DYBookDetailViewController.m"
-            timestampString = "502021974.770136"
+            filePath = "iBooker2/PopoverView/PopoverView.m"
+            timestampString = "503834391.597333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
-            landmarkName = "-pageViewController:viewControllerAfterViewController:"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "-showToView:withActions:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

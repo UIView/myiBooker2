@@ -43,6 +43,7 @@ NSString *const kTableCellNibName = @"DYBookerListTableViewCell";
     DYBookDetailViewController *detailVC=[[DYBookDetailViewController alloc] init];
     detailVC.title=model.title;
     detailVC.bookModel=model;
+    detailVC.style=TDYReaderTransitionStyleScroll;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
